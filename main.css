@@ -4,6 +4,7 @@
 body
 {
 	background-color:rgb(220,220,220);
+	
 
 }
 #logo
@@ -18,7 +19,7 @@ body
     background-size: 20% 80%;
     background-repeat: no-repeat;
 	
-	position:fixed;
+	
 	left:10px;
 	top:5px;
 	
@@ -63,10 +64,11 @@ body
 {
 	width:100%;
 	height:10%;
-	position:fixed;
-	top:85px;
-	left:0;
+	position:absolute;
+	top:15%;
+	left:0px;
 	background-color:#005EB8;
+	
 	
 
 }
@@ -111,3 +113,80 @@ body
 	font-size:11pt;
 
 }
+
+#news
+{
+	
+	width:40%;
+	position:relative;
+	top:100px;
+	left:30px;
+	padding-left:2%;
+	padding-right:2%;
+	padding-top:2%;
+	
+	
+
+}
+
+.container
+{
+	background-color:white;
+	box-shadow: 5px 5px 5px #888888;
+	
+
+}
+
+h2
+{
+	color:#CE0058;
+	font-family:"Verdana";
+	font-size:25pt;
+	
+
+}
+
+.single_news
+{
+	width:100%;
+	background-color:white;
+	padding-top:5%;
+	padding-bottom:5%;
+	
+	
+
+}
+
+#news_date, #news_author
+{
+	color:rgb(200,200,200);
+	font-family:"Verdana";
+	font-size:10pt;
+	
+
+}
+
+h3
+{
+
+	color:#005EB8;
+	font-size:20pt;
+
+}
+
+p
+{
+	font-family:"Verdana";
+
+}
+
+.single_news a
+{
+	text-decoration:none;
+	color:#005EB8;
+	float:right;
+	font-size:16pt;
+
+}
+
+
