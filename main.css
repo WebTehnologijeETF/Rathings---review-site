@@ -136,7 +136,7 @@ body
 #news
 {
 	
-	width:500px;
+	width:600px;
 	position:relative;
 	top:100px;
 	left:30px;
@@ -144,7 +144,7 @@ body
 	padding-right:15px;
 	padding-top:15px;
 	padding-bottom:15px;
-	border-radius:25px;
+	
 	
 	
 
@@ -154,6 +154,7 @@ body
 {
 	background-color:white;
 	box-shadow: 5px 5px 5px #888888;
+	border-radius:25px;
 	
 
 }
@@ -225,7 +226,7 @@ p
 
 }
 
-.news_img
+._img
 {
 	width:30%;
 	height:25%;
@@ -236,9 +237,93 @@ p
 
 }
 
+._img_prod
+{
+	width:15%;
+	height:15%;
+    float:left;
+	padding-right:10px;
+	padding-top:10px;
+	vertical-align:text-top;
+
+}
+
 .news_icon
 {
 	width:20px;
 	height:20px;
+
+}
+
+#right_div
+{
+	width:500px;
+	position:absolute;
+	top:0px;
+	left:700px;
+	padding-left:15px;
+	padding-right:15px;
+	padding-top:15px;
+	padding-bottom:15px;
+	
+
+}
+
+#top_list, #top5
+{
+	width:100%;
+	background-color:white;
+	padding-top:0%;
+	padding-bottom:5%;
+	
+
+}
+
+#single_product
+{
+	width:100%;
+	background-color:white;
+	padding-top:5%;
+	padding-bottom:5%;
+
+}
+
+.right-side
+{
+	float:right;
+}
+
+.prod
+{	
+	color:#005EB8;
+	font-size:14pt;
+	padding-left:30px;
+
+}
+
+.prod2
+{	
+	color:black;
+	font-size:12pt;
+	padding-left:30px;
+
+}
+
+table, th, tr, td
+{
+	border:1px solid black;
+	width:100%;
+
+}
+
+.first_col
+{
+	width:10%;
+
+}
+
+.second_col, .third_col, .fourth_col
+{
+	width:30%;
 
 }
