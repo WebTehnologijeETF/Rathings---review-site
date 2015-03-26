@@ -3,7 +3,7 @@
 
 body
 {
-	background-color:rgb(220,220,220);
+	background-color:rgb(230,230,230);
 	
 
 }
@@ -93,7 +93,7 @@ body
 }
 
 
-#menu_bar ul
+#menu_bar > ul
 {
 	list-style-type: none;
 	margin: 10;
@@ -102,7 +102,7 @@ body
 
 }
 
-#menu_bar ul li
+#menu_bar > ul > li
 {
 	display:inline;
 	padding:10px;
@@ -110,7 +110,7 @@ body
 
 }
 
-#menu_bar ul li:last-child { border-right: 0px; }
+#menu_bar > ul > li:last-child { border-right: 0px; }
 
 #left_menu
 {
@@ -124,7 +124,7 @@ body
 
 }
 
-#menu_bar ul li a
+#menu_bar > ul > li > a
 {
 	color:white;
 	text-decoration:none;
@@ -165,6 +165,8 @@ h2
 	color:#CE0058;
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:18pt;
+	text-align:left;
+	
 	
 	
 
@@ -412,5 +414,62 @@ th
 .empty
 {
 	background-color:white;
+
+}
+
+#about_text
+{
+	position:relative;
+	
+	width:600px;
+	top:100px;
+	left:30px;
+	padding-left:15px;
+	padding-right:15px;
+	padding-top:15px;
+	padding-bottom:15px;
+	margin:0px;
+	
+	
+
+}
+
+#links
+{
+	position:absolute;
+	
+	width:300px;
+	top:125px;
+	left:800px;
+	padding-left:15px;
+	padding-right:15px;
+	padding-top:15px;
+	padding-bottom:15px;
+	margin:0px;
+
+}
+
+#title
+{
+
+	width:50%;
+
+}
+
+.link_list
+{
+	list-style-image: url("/images/bullet.png");
+	list-style-position: inside;
+	
+
+}
+
+.link_list > li > a
+{	
+	
+	
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16pt;
+	color:#005EB8;
 
 }
