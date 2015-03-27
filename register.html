@@ -57,38 +57,48 @@
 </li>
 </ul>
 
+
+
+
 </div>
 
-
-
-
 <form method="post" action="something.php">
-<div id="contact" class="container">
-<h2>Contact us</h2>
+<div id="register" class="container">
+<h2>Register</h2>
 
 <div id="l_contact" class="cdiv">
 <p  class=" clabel">First name: </p>
-<p  class=" clabel">Last name: </p> 
-<p  class=" clabel">Email: </p> 
-<p class=" clabel">Site rating (1-10): </p> 
-<p  class=" clabel">Message urgency: </p> 
-<p  class=" clabel">Message text: </p> 
+<p  class=" clabel">Last name: </p>
+<p  class=" clabel">Age: </p>
+<p  class=" clabel">Gender: </p>
+<p  class=" clabel">Username: </p> 
+<p class=" clabel">Password: </p> 
+<p  class=" clabel">Repeat password: </p> 
+ 
 </div>
 
 <div id="r_contact" class="cdiv">
 <input  type="text" class="celement textbox">
 
 <input type="text" class="celement textbox" size="40">
+
+<input type="number" class="celement numeric" size="5" min="15" max="99"> <br>
+
+<label>Male</label>
+<input type="radio" name="gender" class=" radio">
+<label>Female</label>
+<input type="radio" name="gender" class=" radio">
 <input type="email" class="celement textbox" size="40">
-<input type="number" class="celement numeric" size="5" min="1" max="10">
-<input type="range" class="celement textbox range"> 
-<textarea class="celement textarea" cols="30" rows="7"></textarea>
+<input type="password" class="celement textbox">
+<input type="password" class="celement textbox">
+
 </div>
 
 <div id="c_buttons" >
 
 <input type="reset" value="Reset" class="button">
-<input type="submit" value="Send" class="button">
+<input type="submit" value="Submit" class="button">
+
 
 </div>
 
@@ -97,7 +107,20 @@
 </form>
 
 
+<div id="reg_text" class="container">
+<h2>Why register?</h2>
 
+<p>By joining us you get the following benefits:</p> <br>
+
+<ul class="link_list">
+<li>Page content based on your preferences</li>
+<li>Ability to add new products</li>
+<li>Ability to get rank based on your reviews</li>
+<li>Ability to get price benefits based on your rank</li>
+<li>Ability to work with our partners</li>
+
+</ul>
+</div>
 
 
 
