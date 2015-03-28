@@ -195,7 +195,7 @@ h2
 
 }
 
-#news_date, #news_author
+.news_date, .news_author
 {
 	color:black;
 	font-family:Arial, Helvetica, sans-serif;
@@ -204,7 +204,7 @@ h2
 
 }
 
-#news_author
+.news_author
 {	
 	padding-right:10px;
 
@@ -307,7 +307,7 @@ a:hover
 
 }
 
-#single_product
+.single_product
 {
 	width:100%;
 	
@@ -721,7 +721,7 @@ label
 
 }
 
-#subtitle
+.subtitle
 {
 	padding-top:2%;
 
