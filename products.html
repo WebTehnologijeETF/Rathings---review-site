@@ -1,7 +1,11 @@
+
+
+
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Rathings</title>
+<title>Products</title>
+<meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="main.css">
 <link rel="shortcut icon" type="image/png" href="/images/favicon.png"/>
 </head>
@@ -45,11 +49,11 @@
 </li>
 
 <li class="menu_item">
-<a href="www.google.ba">PRODUCTS</a>
+<a href="products.html">PRODUCTS</a>
 </li>
 
 <li class="menu_item">
-<a href="www.google.ba">ADD PRODUCT</a>
+<a>ADD PRODUCT</a> <!-- page still not implemented -->
 </li>
 </ul>
 
@@ -57,7 +61,7 @@
 
 
 <li class="menu_item">
-<a href="www.google.ba">NOTIFICATIONS</a>
+<a>NOTIFICATIONS</a> <!-- page still not implemented -->
 </li>
 
 <li class="menu_item">
@@ -69,6 +73,7 @@
 
 
 </div>
+
 
 <div id="prod_search">
 <h2>Find products</h2>
@@ -95,7 +100,13 @@
 <p  class=" slabel">Max rating: </p> 
 <input type="number" class="selement numeric" size="5" min="1" max="10">
 <p class=" slabel">Date: </p> 
-<input type="date" class="selement textbox">
+<select class="selement listbox">
+<option>Anytime</option>
+<option>This week</option>
+<option>This month</option>
+<option>This year</option>
+
+</select>
 
 </div>
 
@@ -129,35 +140,35 @@
 
 <img src="/images/product.png" alt="product" class="_img_prod">
 <label class="prod">Product title</label>
-<label class="right-side prod">Rating: 10</label> <br>
+ <label class="rating_mark right-side">10</label> <br>
 <label class="prod2">Category: Music</label> <br>
 </div>
 
 <div class="single_product">
 <img src="/images/product.png" alt="product" class="_img_prod">
 <label class="prod">Product title</label>
-<label class="right-side prod">Rating: 10</label> <br>
+ <label class="rating_mark right-side">10</label> <br>
 <label class="prod2">Category: Music</label> <br>
 </div>
 
 <div class="single_product">
 <img src="/images/product.png" alt="product" class="_img_prod">
 <label class="prod">Product title</label>
-<label class="right-side prod">Rating: 10</label> <br>
+ <label class="rating_mark right-side">10</label> <br>
 <label class="prod2">Category: Music</label> <br>
 </div>
 
 <div class="single_product">
 <img src="/images/product.png" alt="product" class="_img_prod">
 <label class="prod">Product title</label>
-<label class="right-side prod">Rating: 10</label> <br>
+ <label class="rating_mark right-side">10</label> <br>
 <label class="prod2">Category: Music</label> <br>
 </div>
 
 <div class="single_product">
 <img src="/images/product.png" alt="product" class="_img_prod">
 <label class="prod">Product title</label>
-<label class="right-side prod">Rating: 10</label> <br>
+ <label class="rating_mark right-side">10</label> <br>
 <label class="prod2">Category: Music</label> <br>
 </div>
 
@@ -240,7 +251,7 @@
 <div class="single_product">
 <img src="/images/product.png" alt="product" class="_img_prod">
 <label class="prod">Product title</label>
-<label class="right-side prod">Rating: 10</label> <br>
+ <label class="rating_mark right-side">10</label> <br>
 <label class="prod2">Category: Music</label> <br>
 </div>
 </div>
