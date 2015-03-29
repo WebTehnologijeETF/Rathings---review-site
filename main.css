@@ -30,7 +30,7 @@ body
 	margin:0px;
 	padding:0px;
 		
-		padding-left:5px;
+	padding-left:5px;
 	width:400px;
 	height:70px;
 	background: url(http://www.clker.com/cliparts/h/u/h/1/T/V/hot-pink-star-hi.png);
@@ -145,7 +145,9 @@ body
 #news
 {
 	
-	width:600px;
+	width:45%;
+	min-width:400px;
+	
 	position:relative;
 	top:150px;
 	left:30px;
@@ -160,14 +162,7 @@ body
 
 }
 
-.container
-{
-	
-	
-	
-	
 
-}
 
 h2
 {
@@ -306,10 +301,11 @@ a:hover
 
 #right_div
 {
-	width:500px;
+	width:35%;
+	min-width:350px;
 	position:absolute;
 	top:228px;
-	left:700px;
+	left:51%;
 	padding-left:15px;
 	padding-right:15px;
 	padding-top:15px;
@@ -321,11 +317,18 @@ a:hover
 
 #top_list, #top5
 {
-	width:100%;
 	
+	
+	
+	
+
+}
+
+.feed_item
+{
+	width:100%;
 	padding-top:0%;
 	padding-bottom:5%;
-	
 
 }
 
@@ -364,6 +367,7 @@ a:hover
 table
 {
 	height:200px;
+	width:100%;
 
 }
 
@@ -375,6 +379,8 @@ table, th, tr, td
 	padding:5px;
 	text-align:center;
 	border-radius:15px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11pt;
 	
 
 }
@@ -421,6 +427,17 @@ table, th, tr, td
 
 }
 
+.listbox
+{
+	border:1px solid grey;
+	padding:5px;
+	height:30px;
+	border-radius:5px;
+	width:145px;
+	padding-right:30px;
+
+}
+
 .numeric
 {
 	border:1px solid grey;
@@ -431,6 +448,15 @@ table, th, tr, td
 
 }
 .textbox:focus
+{
+	
+	box-shadow: 0px 0px 5px #005EB8;
+	border:1px solid grey;
+	
+
+}
+
+.listbox:focus
 {
 	
 	box-shadow: 0px 0px 5px #005EB8;
@@ -518,7 +544,7 @@ th
 
 .empty
 {
-	background-color:white;
+	background-color:rgb(230,230,230);
 
 }
 
@@ -526,7 +552,8 @@ th
 {
 	position:relative;
 	
-	width:600px;
+	width:45%;
+	min-width:400px;
 	top:100px;
 	left:30px;
 	padding-left:15px;
@@ -543,9 +570,10 @@ th
 {
 	position:absolute;
 	
-	width:300px;
-	top:175px;
-	left:800px;
+	width:22%;
+	min-width:200px;
+	top:178px;
+	left:59%;
 	padding-left:15px;
 	padding-right:15px;
 	padding-top:15px;
@@ -561,7 +589,7 @@ th
 
 }
 
-.link_list
+.common_list
 {
 	list-style-image: url("/images/bullet.png");
 	list-style-position: inside;
@@ -571,7 +599,7 @@ th
 
 }
 
-.link_list > li
+.common_list > li
 {
 	margin-bottom:25px;
 	font-family:Arial, Helvetica, sans-serif;
@@ -630,11 +658,26 @@ th
 
 }
 
+#l_search
+{
+	top:100px;
+	width:40%;
+	left:15%;
+	position:absolute;
+
+}
+
 .celement
 {
 	margin-bottom:35px;
 	
 	
+
+}
+
+.selement
+{
+	margin-bottom:5px;
 
 }
 
@@ -646,10 +689,29 @@ th
 
 }
 
+.slabel
+{
+	margin-left:0px;
+	margin-top:2px;
+	padding-bottom:10px;
+	margin-bottom:2px;
+	
+
+}
+
 #c_buttons
 {
 	margin-left:30%;
 	top:650px;
+	position:absolute;
+	padding-bottom:100px;
+
+}
+
+#s_buttons
+{
+	margin-left:25%;
+	top:450px;
 	position:absolute;
 	padding-bottom:100px;
 
@@ -673,21 +735,28 @@ th
 	font-size:17px;
 	border-radius:6px;
 	font-family:Arial, Helvetica, sans-serif;
-	border:1px solid #1A87B9
+	border:1px solid #1A87B9;
 	
 
 }
 
 .page_button
 {
-	color:white;
-	background-color:#005EB8;
-	height:40px;
-	width:50px;
-	font-size:17px;
-	border-radius:6px;
-	font-family:Arial, Helvetica, sans-serif;
-	border:1px solid #1A87B9
+	
+	width:40px;
+	
+
+}
+
+.common_button
+{	
+	width:100px;
+
+}
+
+.narrow_button
+{
+	width:80px;
 
 }
 
@@ -724,9 +793,10 @@ label
 {
 	
 	position:relative;
-	width:500px;
+	width:37%;
+	min-width:500px;
 	top:150px;
-	left:100px;
+	left:7%;
 	padding-left:15px;
 	padding-right:15px;
 	padding-top:15px;
@@ -738,13 +808,15 @@ label
 #reg_text
 {
 	position:absolute;
-	left:700px;
-	width:40%;
-	top:227px;
+	left:60%;
+	width:35%;
+	min-width:300px;
+	top:228px;
 	padding-left:15px;
 	padding-right:15px;
 	padding-top:15px;
 	padding-bottom:15px;
+	
 
 }
 
@@ -772,8 +844,84 @@ label
 .pagination
 {
 	width:100%;
-	margin-left:10%;
+	margin-left:15%;
 	margin-top:15%;
+	padding-bottom:150px;
+	
+
+}
+
+a:visited
+{
+	color:#005EB8;
+
+}
+
+
+#search_res
+{
+	width:30%;
+	min-width:300px;
+	position:absolute;
+	left:31%;
+	top:250px;
+
+}
+
+.subtitle > ul
+{
+	list-style-type: none;
+	margin: 0px;
+	padding-bottom: 50px;
+	
+
+}
+
+.subtitle > ul > li
+{
+	display:inline;
+	padding:10px;
+	
+
+}
+
+.subtitle > ul > li > a
+{
+	display:inline;
+	padding:10px;
+	color:#CE0058;
+
+}
+
+#feed
+{
+	width:30%;
+	min-width:250px;
+	position:absolute;
+	top:250px;
+	left:65%;
+
+}
+
+#prod_search
+{
+	width:25%;
+	min-width:200px;
+	left:2%;
+	position:absolute;
+	top:250px;
+
+}
+
+#search_form
+{
+	width:100%;
+
+}
+
+#table_div
+{
+	width:100%;
 	
 
 }
