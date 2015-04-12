@@ -273,7 +273,7 @@ a:hover
 ._img
 {
 	width:30%;
-	
+	height:150px;
     float:left;
 	padding-right:25px;
 	padding-top:20px;
@@ -455,6 +455,14 @@ table, th, tr, td
 	box-shadow: 0px 0px 5px #005EB8;
 	border:1px solid grey;
 	
+	
+
+}
+
+.ctrl_error
+{
+	box-shadow: 0px 0px 5px red;
+	border:1px solid grey;
 
 }
 
@@ -495,6 +503,7 @@ table, th, tr, td
 .range
 {
 	margin-left:0px;
+	padding:5px;
 
 }
 
@@ -643,7 +652,7 @@ th
 #l_contact
 {
 	width:30%;
-	top:100px;
+	top:120px;
 	left:0%;
 	position:absolute;
 	padding-left:10%;
@@ -653,7 +662,7 @@ th
 #r_contact
 {
 	
-	top:100px;
+	top:120px;
 	width:40%;
 	left:45%;
 	position:absolute;
@@ -671,7 +680,7 @@ th
 
 .celement
 {
-	margin-bottom:35px;
+	margin-bottom:0px;
 	
 	
 
@@ -687,7 +696,7 @@ th
 {
 	margin-left:20px;
 	margin-top:2px;
-	padding-bottom:27px;
+	padding-bottom:37px;
 
 }
 
@@ -704,7 +713,7 @@ th
 #c_buttons
 {
 	margin-left:30%;
-	top:650px;
+	top:720px;
 	position:absolute;
 	padding-bottom:100px;
 
@@ -936,4 +945,38 @@ a:visited
 
 }
 
+.note
+{
+	font-size:10pt;
+	width:100%;
+	padding-left:12%;
+}
 
+.error
+{
+
+	margin-bottom:0px;
+	height:46px;
+	
+	position:relative;
+	display:block;
+	overflow: hidden;
+
+}
+
+.error_img
+{
+	background: url(/images/error.png);
+    background-size: 10% 45%;
+    background-repeat: no-repeat;
+}
+
+.error_text
+{
+	padding-top:0px;
+	margin-left:15%;
+	margin-top:0px;
+	font-size:10pt;
+	color:red;
+
+}
