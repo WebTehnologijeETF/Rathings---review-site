@@ -51,8 +51,15 @@ function validRating(text)
 function checkName(id)
 {
 	var c = document.getElementById(id);
-	if(isEmpty(c.value)) setError(0, 'You must enter your first name.');
-	else resolveError(0);
+	if(isEmpty(c.value))
+	{	setError(0, 'You must enter your first name.');
+		valid = false;
+	}
+	else
+	{
+			resolveError(0);
+			
+	}
 	
 
 }
@@ -61,7 +68,11 @@ function checkLastName(id)
 {
 	var c = document.getElementById(id);
 	if(isEmpty(c.value)) setError(1, 'You must enter your last name.');
-	else resolveError(1);
+	else
+	{
+			resolveError(1);
+			
+	}
 	
 
 }
@@ -69,9 +80,20 @@ function checkLastName(id)
 function checkEmail(id)
 {
 	var c = document.getElementById(id);
-	if(isEmpty(c.value)) setError(2, 'You must enter your email address.');
-	else if (!validEmail(c.value)) setError(2, 'You must enter a valid email address.');
-	else resolveError(2);
+	if(isEmpty(c.value))
+	{	setError(2, 'You must enter your email address.');
+		valid = false;
+	}
+	else if (!validEmail(c.value))
+	{
+			setError(2, 'You must enter a valid email address.');
+			valid = false;
+	}
+	else
+	{
+			resolveError(2);
+			
+	}
 	
 
 }
@@ -80,8 +102,15 @@ function checkRating(id)
 {
 	var c = document.getElementById(id);
 	if ((c.validity) && (!c.validity.valid))
+	{
       setError(3, 'You must enter a number between 1 and 10.');
-	else resolveError(3);
+	  valid = false;
+	}
+	else
+	{
+			resolveError(3);
+			
+	}
 	
 }
 
@@ -89,14 +118,38 @@ function checkRating(id)
 function checkMessage(id)
 {
 	var c = document.getElementById(id);
-	if(isEmpty(c.value)) setError(5, 'You must enter your message.');
-	else resolveError(5);
+	if(isEmpty(c.value))
+	{
+		setError(5, 'You must enter your message.');
+		valid = false;
+	}
+	else
+	{
+			resolveError(5);
+			
+	}
 
+}
+
+
+function validateForm()
+{
+
+	valid = true;
+	checkName('el0');
+	checkLastName('el1');
+	checkEmail('el2');
+	checkRating('el3');
+	checkMessage('el5');
+	
+	return valid;
 }
 
 
 window.addEventListener('load',function(){
 
+
+var valid = true;
 
 document.getElementById("el0").addEventListener( "blur", 
 function() { checkName('el0');});
@@ -113,5 +166,7 @@ function() { checkRating('el3');});
 
 document.getElementById("el5").addEventListener( "blur", 
 function() { checkMessage('el5');});
+
+
 
 });
