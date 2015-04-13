@@ -8,6 +8,8 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="main.css">
 <link rel="shortcut icon" type="image/png" href="/images/favicon.png"/>
+<script src="gvalidation.js"></script>
+<script src="login-validation.js"></script>
 </head>
 <body>
 
@@ -78,7 +80,7 @@
 
 
 
-<form method="post" action="something.php">
+<form method="post" action="something.php" onsubmit="return validateForm();">
 <div id="contact" class="container">
 <h2>Log in</h2>
 
@@ -91,9 +93,11 @@
 <div id="r_contact" class="cdiv">
 
 
-<input type="email" class="celement textbox" size="40">
-<input type="password" class="celement textbox" size="40">
-<input type="checkbox"><label>Remember me </label>
+<input type="email" id="el0" class="celement textbox" size="40">
+<div class="error" id="er0"><p class="error_text"></p></div>
+<input type="password" id="el1" class="celement textbox" size="40">
+<div class="error" id="er1"><p class="error_text"></p></div>
+<input type="checkbox" ><label>Remember me </label>
 
 </div>
 

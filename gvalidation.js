@@ -18,7 +18,8 @@ function resolveError(divNumber)
 	var t = document.getElementsByClassName('celement')[divNumber];
 	d.getElementsByTagName('p')[0].innerHTML = "";
 	d.className = "error";
-	t.classList.remove("ctrl_error");
+	//t.classList.remove("ctrl_error"); works only on IE10+
+	t.className = t.className.replace(/\bctrl_error\b/,'');
 	
 
 }
@@ -48,16 +49,29 @@ function validRating(text)
 
 }
 
+function validPass(text)
+{
+	// password must contain at least one digit and one capital letter
+	
+	
+	var reg = /^.*[A-Z]+.*\d+.*$/;
+	if(!reg.test(text)) return false;
+	return true;
+	
+
+
+}
+
 function checkName(id)
 {
 	var c = document.getElementById(id);
 	if(isEmpty(c.value))
-	{	setError(0, 'You must enter your first name.');
-		valid = false;
+	{	setError(id[2], 'You must enter your first name.');
+		validC = false;
 	}
 	else
 	{
-			resolveError(0);
+			resolveError(id[2]);
 			
 	}
 	
@@ -67,10 +81,13 @@ function checkName(id)
 function checkLastName(id)
 {
 	var c = document.getElementById(id);
-	if(isEmpty(c.value)) setError(1, 'You must enter your last name.');
+	if(isEmpty(c.value))
+	{	setError(id[2], 'You must enter your last name.');
+		valid = false;
+	}
 	else
 	{
-			resolveError(1);
+			resolveError(id[2]);
 			
 	}
 	
@@ -81,17 +98,17 @@ function checkEmail(id)
 {
 	var c = document.getElementById(id);
 	if(isEmpty(c.value))
-	{	setError(2, 'You must enter your email address.');
+	{	setError(id[2], 'You must enter your email address.');
 		valid = false;
 	}
 	else if (!validEmail(c.value))
 	{
-			setError(2, 'You must enter a valid email address.');
+			setError(id[2], 'You must enter a valid email address.');
 			valid = false;
 	}
 	else
 	{
-			resolveError(2);
+			resolveError(id[2]);
 			
 	}
 	
@@ -103,12 +120,12 @@ function checkRating(id)
 	var c = document.getElementById(id);
 	if ((c.validity) && (!c.validity.valid))
 	{
-      setError(3, 'You must enter a number between 1 and 10.');
+      setError(id[2], 'You must enter a number between 1 and 10.');
 	  valid = false;
 	}
 	else
 	{
-			resolveError(3);
+			resolveError(id[2]);
 			
 	}
 	
@@ -120,53 +137,121 @@ function checkMessage(id)
 	var c = document.getElementById(id);
 	if(isEmpty(c.value))
 	{
-		setError(5, 'You must enter your message.');
+		setError(id[2], 'You must enter your message.');
 		valid = false;
 	}
 	else
 	{
-			resolveError(5);
+			resolveError(id[2]);
 			
 	}
 
 }
 
 
-function validateForm()
+
+function checkPass(id)
+{
+	var c = document.getElementById(id);
+	if(isEmpty(c.value))
+	{
+		setError(id[2], 'You must enter your password.');
+		valid = false;
+	
+	}
+	else
+	{
+		resolveError(id[2]);
+	
+	}
+
+
+}
+
+function checkAge(id)
+{
+	var c = document.getElementById(id);
+	if(isEmpty(c.value))
+	{
+		setError(id[2], 'You must provide your age.');
+		valid = false;
+	
+	}
+	else if ((c.validity) && (!c.validity.valid))
+	{
+      setError(id[2], 'You must be aged between 15 and 99 to register.');
+	  valid = false;
+	}
+	else
+	{
+			resolveError(id[2]);
+			
+	}
+
+}
+
+function checkImage(id)
+{
+	//TODO
+	
+
+}
+
+function checkValidPass(id)
 {
 
-	valid = true;
-	checkName('el0');
-	checkLastName('el1');
-	checkEmail('el2');
-	checkRating('el3');
-	checkMessage('el5');
+	var c = document.getElementById(id);
+
+	if(isEmpty(c.value))
+	{	setError(id[2], 'You must provide a password.');
+		valid = false;
+	}
+	else if(c.value.toString().length < 8)
+	{
+		setError(id[2], 'Your password must be at least 8 characters long');
+		valid = false;
 	
-	return valid;
+	}
+	else if (!validPass(c.value))
+	{
+			setError(id[2], 'Your password must contain at least one digit and one capital.');
+			valid = false;
+	}
+	else
+	{
+			resolveError(id[2]);
+			
+	}
+	
+	
+
+
+
+}
+
+function checkPassConf(id)
+{
+	var c = document.getElementById(id);
+
+	var p = document.getElementById('el6'); // first password
+	
+	if(isEmpty(c.value))
+	{	setError(id[2], 'You must confirm your password.');
+		valid = false;
+	}
+	else if(p.value != null && c.value != p.value)
+	{	setError(id[2], "The two passwords don't match");
+		valid = false;
+	}
+	else
+	{
+			resolveError(id[2]);
+			
+	}
+	
+	
+
+
 }
 
 
-window.addEventListener('load',function(){
-
-
-var valid = true;
-
-document.getElementById("el0").addEventListener( "blur", 
-function() { checkName('el0');});
-
-document.getElementById("el1").addEventListener( "blur", 
-function() { checkLastName('el1');});
-
-document.getElementById("el2").addEventListener( "blur", 
-function() { checkEmail('el2');});
-
-document.getElementById("el3").addEventListener( "blur", 
-function() { checkRating('el3');});
-
-
-document.getElementById("el5").addEventListener( "blur", 
-function() { checkMessage('el5');});
-
-
-
-});

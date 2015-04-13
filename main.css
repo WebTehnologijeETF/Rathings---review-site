@@ -651,7 +651,7 @@ th
 
 #l_contact
 {
-	width:30%;
+	width:31%;
 	top:120px;
 	left:0%;
 	position:absolute;
@@ -719,6 +719,15 @@ th
 
 }
 
+#r_buttons
+{
+	margin-left:30%;
+	top:800px;
+	position:absolute;
+	padding-bottom:100px;
+
+}
+
 #s_buttons
 {
 	margin-left:25%;
@@ -731,7 +740,7 @@ th
 #l_buttons
 {
 	margin-left:35%;
-	top:350px;
+	top:400px;
 	position:absolute;
 	padding-bottom:100px;
 
@@ -789,7 +798,7 @@ th
 
 	height:15px;
 	width:20%;
-	margin-bottom:45px;
+	margin-bottom:9px;
 	margin-top:5px;
 
 }
@@ -980,3 +989,4 @@ a:visited
 	color:red;
 
 }
+
