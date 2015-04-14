@@ -192,7 +192,31 @@ function checkAge(id)
 
 function checkImage(id)
 {
-	//TODO
+	// permitted extensions: .jpg, .jpeg, .png, .gif, .bmp, .ico
+	
+	var ext = ["jpg", "png", "gif", "bmp", "ico"];
+	var c = document.getElementById(id);
+	var b = false;
+
+	if(c.value.length >=4)
+		s = c.value.substr(c.value.length - 3);
+		
+	for(var i=0;i<ext.length;i++)
+		if(s == ext[i]) b = true;
+		
+	if(c.value.length >=5 && c.value.substr(c.value.length - 4) == 'jpeg')
+		b = true;
+		
+		
+	if(!b)
+	{
+		setError(id[2], "Invalid picture format");
+	  valid = false;
+		
+	
+	}
+	else
+		resolveError(id[2]);
 	
 
 }
