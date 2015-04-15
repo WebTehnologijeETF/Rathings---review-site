@@ -3,6 +3,8 @@ function setError(divNumber, text)
 {
 	var d = document.getElementsByClassName('error')[divNumber];
 	var t = document.getElementsByClassName('celement')[divNumber];
+	if(t==null)
+		t = document.getElementsByClassName('selement')[divNumber];
 	t.className += " ctrl_error";
 	d.className += " error_img";
 	d.getElementsByTagName('p')[0].innerHTML = text;
@@ -199,6 +201,7 @@ function checkImage(id)
 	var b = false;
 
 	if(c.value.length >=4)
+	{
 		s = c.value.substr(c.value.length - 3);
 		
 	for(var i=0;i<ext.length;i++)
@@ -206,6 +209,10 @@ function checkImage(id)
 		
 	if(c.value.length >=5 && c.value.substr(c.value.length - 4) == 'jpeg')
 		b = true;
+		
+	}
+	else 
+		b = true; // empty
 		
 		
 	if(!b)

@@ -17,7 +17,8 @@ function tree(id)
 		
 		if(o.style.display === 'block') // subelement is open
 		{
-			o.style.display = 'none';
+			o.style.display= 'none';
+		
 			c.className = c.className.replace(/\bopened\b/,'');
 			c.className += " closed";
 		
@@ -26,6 +27,7 @@ function tree(id)
 		else // subelement is closed
 		{
 			o.style.display = 'block';
+			
 			c.className = c.className.replace(/\bclosed\b/,'');
 			c.className += " opened";
 		
