@@ -8,6 +8,8 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="main.css">
 <link rel="shortcut icon" type="image/png" href="/images/favicon.png"/>
+<script src="gvalidation.js"></script>
+<script src="register-validation.js"></script>
 </head>
 <body>
 
@@ -75,41 +77,52 @@
 </div>
 
 
-<form method="post" action="something.php">
+<form method="post" action="something.php" onsubmit="return validateForm();">
 <div id="register" class="container">
 <h2>Register</h2>
+<p class="note"><i>Note: Fields marked with * are mandatory</i></p>
 
 <div id="l_contact" class="cdiv">
-<p  class=" clabel">First name: </p>
-<p  class=" clabel">Last name: </p>
-<p  class=" clabel">Age: </p>
+<p  class=" clabel">First name*: </p>
+<p  class=" clabel">Last name*: </p>
+<p  class=" clabel">Age*: </p>
 <p  class=" clabel">Gender: </p>
 <p  class=" clabel">Picture: </p>
-<p  class=" clabel">Username: </p> 
-<p class=" clabel">Password: </p> 
-<p  class=" clabel">Confirm password: </p> 
+<p  class=" clabel">Username*: </p> 
+<p class=" clabel">Password*: </p> 
+<p  class=" clabel">Confirm password*: </p> 
  
 </div>
 
 <div id="r_contact" class="cdiv">
-<input  type="text" class="celement textbox">
-
-<input type="text" class="celement textbox" size="40">
-
-<input type="number" class="celement numeric" size="5" min="15" max="99"> <br>
-
+<input  type="text" id="el0" class="celement textbox">
+<div class="error" id="er0"><p class="error_text"></p></div>
+<input type="text" id="el1" class="celement textbox" size="40">
+<div class="error" id="er1"><p class="error_text"></p></div>
+<input type="number" id="el2" class="celement numeric" size="5" min="15" max="99"> <br>
+<div class="error" id="er2"><p class="error_text"></p></div>
 <label>Male</label>
-<input type="radio" name="gender" class=" radio">
+<input type="radio" name="gender" class=" radio celement">
+
 <label>Female</label>
 <input type="radio" name="gender" class=" radio">
-<input type="file" class="celement" accept="image/*">
-<input type="email" class="celement textbox" size="40">
-<input type="password" class="celement textbox">
-<input type="password" class="celement textbox">
+<div class="error" id="er3"><p class="error_text"></p></div>
+
+<input type="file" id="el4" class="celement" accept="image/*">
+<div class="error" id="er4"><p class="error_text"></p></div>
+
+<input type="email" id="el5" class="celement textbox" size="40">
+<div class="error" id="er5"><p class="error_text"></p></div>
+
+<input type="password" id="el6" class="celement textbox">
+<div class="error" id="er6"><p class="error_text"></p></div>
+
+<input type="password" id="el7" class="celement textbox">
+<div class="error" id="er7"><p class="error_text"></p></div>
 
 </div>
 
-<div id="c_buttons" >
+<div id="r_buttons" >
 
 <input type="reset" value="Reset" class="button common_button">
 <input type="submit" value="Submit" class="button common_button">

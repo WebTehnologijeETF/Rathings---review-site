@@ -182,9 +182,12 @@ h2
 .single_news
 {
 	width:100%;
-	
+	position:relative;
+	top:30%;
 	padding-top:1%;
 	padding-bottom:15%;
+	display:block;
+	
 	
 	
 
@@ -229,7 +232,9 @@ a:hover
 .single_news > a
 {
 	
-	float:right;
+	display:block;
+	left:90%;
+	position:relative;
 	font-size:14pt;
 	color:#CE0058;
 	
@@ -264,7 +269,10 @@ a:hover
 	background-color:#CE0058;
 	border-radius:25px;
 	height:3px;
-	margin-top:40px;
+	margin-top:0px;
+	top:0px;
+	position:relative;
+	
 	
 	
 
@@ -272,15 +280,23 @@ a:hover
 
 ._img
 {
-	width:30%;
+	width:100%;
 	
-    float:left;
-	padding-right:25px;
-	padding-top:20px;
+
 	vertical-align:text-top;
 	
 
 }
+
+.img_div
+{
+		width:30%;
+	position:relative;
+	
+	display:inline-block;
+
+}
+
 
 ._img_prod
 {
@@ -297,6 +313,17 @@ a:hover
 {
 	width:20px;
 	height:20px;
+
+}
+
+.news_text
+{
+
+	position:absolute;
+	padding-left:10px;
+	width:70%;
+	display:inline-block;
+	
 
 }
 
@@ -455,6 +482,14 @@ table, th, tr, td
 	box-shadow: 0px 0px 5px #005EB8;
 	border:1px solid grey;
 	
+	
+
+}
+
+.ctrl_error
+{
+	box-shadow: 0px 0px 5px red;
+	border:1px solid grey;
 
 }
 
@@ -495,6 +530,7 @@ table, th, tr, td
 .range
 {
 	margin-left:0px;
+	padding:5px;
 
 }
 
@@ -642,8 +678,8 @@ th
 
 #l_contact
 {
-	width:30%;
-	top:100px;
+	width:31%;
+	top:120px;
 	left:0%;
 	position:absolute;
 	padding-left:10%;
@@ -653,7 +689,7 @@ th
 #r_contact
 {
 	
-	top:100px;
+	top:120px;
 	width:40%;
 	left:45%;
 	position:absolute;
@@ -662,16 +698,16 @@ th
 
 #l_search
 {
-	top:100px;
-	width:40%;
+	top:10px;
+	width:60%;
 	left:15%;
-	position:absolute;
+	position:relative;
 
 }
 
 .celement
 {
-	margin-bottom:35px;
+	margin-bottom:0px;
 	
 	
 
@@ -687,7 +723,7 @@ th
 {
 	margin-left:20px;
 	margin-top:2px;
-	padding-bottom:27px;
+	padding-bottom:37px;
 
 }
 
@@ -704,7 +740,16 @@ th
 #c_buttons
 {
 	margin-left:30%;
-	top:650px;
+	top:720px;
+	position:absolute;
+	padding-bottom:100px;
+
+}
+
+#r_buttons
+{
+	margin-left:30%;
+	top:800px;
 	position:absolute;
 	padding-bottom:100px;
 
@@ -713,8 +758,8 @@ th
 #s_buttons
 {
 	margin-left:25%;
-	top:450px;
-	position:absolute;
+	top:100px;
+	position:relative;
 	padding-bottom:100px;
 
 }
@@ -722,7 +767,7 @@ th
 #l_buttons
 {
 	margin-left:35%;
-	top:350px;
+	top:400px;
 	position:absolute;
 	padding-bottom:100px;
 
@@ -780,7 +825,7 @@ th
 
 	height:15px;
 	width:20%;
-	margin-bottom:45px;
+	margin-bottom:9px;
 	margin-top:5px;
 
 }
@@ -849,6 +894,7 @@ label
 	margin-left:15%;
 	margin-top:15%;
 	padding-bottom:150px;
+	position:relative;
 	
 
 }
@@ -935,5 +981,132 @@ a:visited
 	font-size:20pt;
 
 }
+
+.note
+{
+	font-size:10pt;
+	width:100%;
+	padding-left:12%;
+}
+
+.error
+{
+
+	margin-bottom:0px;
+	height:46px;
+	
+	position:relative;
+	display:block;
+	overflow: hidden;
+
+}
+
+.error_img
+{
+	background: url(/images/error.png);
+    background-size: 10% 45%;
+    background-repeat: no-repeat;
+}
+
+.error_text
+{
+	padding-top:0px;
+	margin-left:15%;
+	margin-top:0px;
+	font-size:10pt;
+	color:red;
+
+}
+
+#categories
+{
+	left:10%;
+	position:relative;
+	width:80%;
+	
+	
+
+
+
+}
+
+.single_cat
+{
+	width:50%;
+	padding:5px;
+	padding-top:0px;
+	display:inline-block;
+	font-size:12pt;
+	cursor:pointer;
+	
+
+
+}
+
+.single_cat > label
+{
+	position:relative;
+	left:10%;
+	margin-top:0px;
+	padding-top:0px;
+	cursor:pointer;
+
+}
+
+.second_lvl
+{
+	left:10%;
+	position:relative;
+	color: #005EB8;
+	padding:5px;
+	display:none;
+	
+	
+	
+	
+
+
+}
+
+.third_lvl
+{
+	left:10%;
+	position:relative;
+	color:#CE0058;
+	width:90%;
+	padding:5px;
+	display:none;
+	
+	
+
+}
+
+.opened
+{
+	background: url(/images/minus.png);
+    background-size: 9% 55%;
+	background-position: 0% 20%;
+    background-repeat: no-repeat;
+
+}
+
+
+.closed
+{
+	background: url(/images/plus.png);
+    background-size: 9% 55%;
+	background-position: 0% 20%;
+    background-repeat: no-repeat;
+
+}
+
+.check_div
+{
+	position:relative;
+	left:0%;
+	display:inline-block;
+
+}
+
 
 
