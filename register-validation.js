@@ -8,9 +8,12 @@ function validateForm()
 	checkLastName('el1');
 	checkAge('el2');
 	checkImage('el4');
-	checkEmail('el5');
-	checkValidPass('el6');
-	checkPassConf('el7');
+	checkEmail('el8');
+	checkValidPass('el9');
+	checkPassConf('el10');
+	checkCountry('el5');
+	checkCallingCode('el6');
+	checkPhone('el7');
 	
 	return valid;
 }
@@ -36,14 +39,23 @@ document.getElementById("el4").addEventListener( "blur",
 function() { checkImage('el4');});
 
 
+document.getElementById("el8").addEventListener( "blur", 
+function() { checkEmail('el8');});
+
+document.getElementById("el9").addEventListener( "blur", 
+function() { checkValidPass('el9');});
+
+document.getElementById("el10").addEventListener( "blur", 
+function() { checkPassConf('el10');});
+
 document.getElementById("el5").addEventListener( "blur", 
-function() { checkEmail('el5');});
+function() { checkCountry('el5');});
 
 document.getElementById("el6").addEventListener( "blur", 
-function() { checkValidPass('el6');});
+function() { checkCallingCode('el6');});
 
 document.getElementById("el7").addEventListener( "blur", 
-function() { checkPassConf('el7');});
+function() { checkPhone('el7');});
 
 }
 
@@ -62,14 +74,23 @@ document.getElementById("el4").attachEvent( "onblur",
 function() { checkImage('el4');});
 
 
+document.getElementById("el8").attachEvent( "onblur", 
+function() { checkEmail('el8');});
+
+document.getElementById("el9").attachEvent( "onblur", 
+function() { checkValidPass('el9');});
+
+document.getElementById("el10").attachEvent( "onblur", 
+function() { checkPassConf('el10');});
+
 document.getElementById("el5").attachEvent( "onblur", 
-function() { checkEmail('el5');});
+function() { checkCountry('el5');});
 
 document.getElementById("el6").attachEvent( "onblur", 
-function() { checkValidPass('el6');});
+function() { checkCallingCode('el6');});
 
 document.getElementById("el7").attachEvent( "onblur", 
-function() { checkPassConf('el7');});
+function() { checkPhone('el7');});
 
 
 }

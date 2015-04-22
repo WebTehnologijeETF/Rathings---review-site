@@ -5,6 +5,8 @@ function setError(divNumber, text)
 	var t = document.getElementsByClassName('celement')[divNumber];
 	if(t==null)
 		t = document.getElementsByClassName('selement')[divNumber];
+		
+	if((" " + t.className + " " ).indexOf( " "+"ctrl_error"+" " ) > -1) // if it already contains error class
 	t.className += " ctrl_error";
 	d.className += " error_img";
 	d.getElementsByTagName('p')[0].innerHTML = text;
@@ -46,6 +48,15 @@ function validRating(text)
 	var reg = /^\d+$/;
 	if(!reg.test(text.toString())) return false;
 	if(parseInt(text) > 10 || parseInt(text) < 1) return false;
+	return true;
+
+
+}
+
+function validDigit(text)
+{
+	var reg = /^[0-9]+$/;
+	if(!reg.test(text)) return false;
 	return true;
 
 
@@ -264,10 +275,10 @@ function checkPassConf(id)
 {
 	var c = document.getElementById(id);
 
-	var p = document.getElementById('el6'); // first password
+	var p = document.getElementById('el9'); // first password
 	
 	if(isEmpty(c.value))
-	{	setError(id[2], 'You must confirm your password.');
+	{	setError(id[2] + id[3], 'You must confirm your password.');
 		valid = false;
 	}
 	else if(p.value != null && c.value != p.value)
@@ -276,12 +287,129 @@ function checkPassConf(id)
 	}
 	else
 	{
-			resolveError(id[2]);
+			resolveError(id[2] + id[3]);
 			
 	}
 	
 	
 
+
+}
+
+
+function checkCountry(id)
+{
+	var c = document.getElementById(id);
+
+	
+	
+	if(isEmpty(c.value))
+	{	setError(id[2], 'You must enter your country.');
+		valid = false;
+	}
+	
+	else
+	{
+			var ajax = new XMLHttpRequest();
+			var param = "https://restcountries.eu/rest/v1/name/" + c.value;
+			
+			ajax.onreadystatechange = function() {// Anonimna funkcija
+			if (ajax.readyState == 4 && ajax.status == 200)
+				resolveError(id[2]);
+			if (ajax.readyState == 4 && ajax.status == 404)
+				{
+					setError(id[2], "The country you entered doesn't exist");
+					valid = false;
+				
+				
+				}
+		}
+			ajax.open("GET", param, true);
+			ajax.send();
+
+			
+			
+	}
+
+
+}
+
+
+function checkCallingCode(id)
+{
+	var c = document.getElementById(id);
+
+	
+		if(isEmpty(c.value))
+	{
+		setError(id[2], 'You must enter your country calling code');
+		valid = false;
+	
+	}
+
+
+	
+	else
+	{
+			var ajax = new XMLHttpRequest();
+			var param = "https://restcountries.eu/rest/v1/callingcode/" + c.value;
+			
+			ajax.onreadystatechange = function() {// Anonimna funkcija
+			if (ajax.readyState == 4 && ajax.status == 200)
+			{
+			
+				var country = document.getElementById('el5').value;
+			
+				var data = JSON.parse(ajax.responseText);
+				if(data[0].name != country)
+				{
+					setError(id[2], "The calling code you entered doesnt't match the country");
+					valid = false;
+				
+				}
+				else
+				resolveError(id[2]);
+				
+				}
+			if (ajax.readyState == 4 && ajax.status == 404)
+				{
+					setError(id[2], "The calling code you entered doesnt't exist");
+					valid = false;
+				
+				
+				}
+		}
+			ajax.open("GET", param, true);
+			ajax.send();
+
+			
+			
+	}
+
+
+}
+
+
+function checkPhone(id)
+{
+	var c = document.getElementById(id);
+
+	
+		if(isEmpty(c.value))
+	{
+		setError(id[2], 'You must enter your phone number');
+		valid = false;
+	
+	}
+	else if(!validDigit(c.value))
+	{
+		setError(id[2], 'You must enter a valid phone number');
+		valid = false;
+	
+	}
+	else
+		resolveError(id[2]);
+	
 
 }
 
