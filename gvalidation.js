@@ -91,6 +91,23 @@ function checkName(id)
 
 }
 
+
+function checkPName(id)
+{
+	var c = document.getElementById(id);
+	if(isEmpty(c.value))
+	{	setError(id[2], 'You must enter the product name.');
+		validC = false;
+	}
+	else
+	{
+			resolveError(id[2]);
+			
+	}
+	
+
+}
+
 function checkLastName(id)
 {
 	var c = document.getElementById(id);
@@ -151,6 +168,22 @@ function checkMessage(id)
 	if(isEmpty(c.value))
 	{
 		setError(id[2], 'You must enter your message.');
+		valid = false;
+	}
+	else
+	{
+			resolveError(id[2]);
+			
+	}
+
+}
+
+function checkDescription(id)
+{
+	var c = document.getElementById(id);
+	if(isEmpty(c.value))
+	{
+		setError(id[2], 'You must enter a description.');
 		valid = false;
 	}
 	else
@@ -234,6 +267,56 @@ function checkImage(id)
 	
 	}
 	else
+		resolveError(id[2]);
+	
+
+}
+
+function checkPImage(id)
+{
+	// permitted extensions: .jpg, .jpeg, .png, .gif, .bmp, .ico
+	
+	var ext = ["jpg", "png", "gif", "bmp", "ico"];
+	var c = document.getElementById(id);
+	var b = false;
+	
+	
+	
+	
+	
+	if(c.value.length >=4)
+	{
+		s = c.value.substr(c.value.length - 3);
+		
+	for(var i=0;i<ext.length;i++)
+		if(s == ext[i]) b = true;
+		
+	if(c.value.length >=5 && c.value.substr(c.value.length - 4) == 'jpeg')
+		b = true;
+		
+	}
+	else 
+	{
+		
+	
+		setError(id[2], 'You must provide a product image.');
+		valid = false;
+		b = false; // empty
+		return;
+		
+	}
+		
+		
+	if(!b)
+	{
+		setError(id[2], "Invalid picture format");
+		valid = false;
+		
+	
+	}
+	else
+	
+		
 		resolveError(id[2]);
 	
 
