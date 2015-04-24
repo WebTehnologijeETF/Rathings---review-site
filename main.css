@@ -1157,4 +1157,49 @@ a:visited
 }
 
 
+#addprod
+{
+	color:#CE0058;
+	margin-bottom:50px;
+	margin-top:50px;
+	
+
+
+}
+
+#addprod > label
+{
+	cursor:pointer;
+	font-size:14pt;
+	
+
+}
+
+#addprod > label:hover
+{
+	text-decoration:underline;
+	
+
+
+}
+
+.update-delete
+{
+	position:relative;
+	left:0%;
+	color:#CE0058;
+	margin-top:10%;
+	
+	bottom:0px;
+	width:50%;
+	float:right;
+
+}
+
+.update-delete > label
+{
+	padding:10px;
+
+
+}
 
