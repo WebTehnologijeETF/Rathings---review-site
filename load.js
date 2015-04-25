@@ -71,7 +71,7 @@ function loadProducts()
 					 <label class="rating_mark right-side">8.3</label> <br>\
 					<label class="prod2">Category: Movies</label> <br>\
 					<div class="update-delete lab_link">\
-					<label onclick="updateProduct(' + data[i].id + ');">Update</label>\
+					<label onclick="prepareForUpdate(' + data[i].id + ');">Update</label>\
 					<label  onclick="deleteProduct(' + data[i].id + ');">Delete</label>\
 					</div>\
 					</div>';
