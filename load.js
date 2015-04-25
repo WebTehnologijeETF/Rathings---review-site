@@ -70,9 +70,9 @@ function loadProducts()
 					<label class="prod">' + data[i].naziv + '</label>\
 					 <label class="rating_mark right-side">8.3</label> <br>\
 					<label class="prod2">Category: Movies</label> <br>\
-					<div class="update-delete">\
-					<label>Update</label>\
-					<label>Delete</label>\
+					<div class="update-delete lab_link">\
+					<label onclick="updateProduct(' + data[i].id + ');">Update</label>\
+					<label  onclick="deleteProduct(' + data[i].id + ');">Delete</label>\
 					</div>\
 					</div>';
 					
@@ -99,7 +99,7 @@ function loadProducts()
 			}
 			if (ajax.readyState == 4 && ajax.status == 404)
 				{
-					alert("Error: Products couldnt't be loaded");
+					alert("Error: Products couldn't be loaded");
 				
 				
 				}

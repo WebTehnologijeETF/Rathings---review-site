@@ -1169,13 +1169,20 @@ a:visited
 
 #addprod > label
 {
-	cursor:pointer;
+
 	font-size:14pt;
+
+}
+
+.lab_link > label
+{
+	cursor:pointer;
+	
 	
 
 }
 
-#addprod > label:hover
+.lab_link > label:hover
 {
 	text-decoration:underline;
 	
@@ -1203,3 +1210,36 @@ a:visited
 
 }
 
+#message
+{
+	color:green;
+	width:100%;
+	top:200px;
+	position:absolute;
+	left:100px;
+
+
+}
+
+#back
+{
+	position:absolute;
+	left:100px;
+	top:250px;
+	color:#CE0058;
+
+}
+
+#back > p
+{	
+	cursor:pointer;
+	font-size:16pt;
+	
+
+}
+
+#back > p:hover
+{
+	text-decoration:underline;
+
+}

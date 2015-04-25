@@ -29,15 +29,18 @@ function validateForm()
 			ajax.onreadystatechange = function() {// Anonimna funkcija
 			if (ajax.readyState == 4 && ajax.status == 200)
 			{
-					alert("Success");
-				
+					var p = document.getElementById('message').getElementsByTagName('p')[0];
+					p.innerHTML = "You have successfully added a new product";
+					p.style.color = 'green';
 				
 				}
 			if (ajax.readyState == 4 && ajax.status == 404)
 				{
 					
 					
-						alert("error");
+						var p = document.getElementById('message').getElementsByTagName('p')[0];
+						p.style.color = 'red';
+						p.innerHTML = "Error: Please try again";
 				}
 		}
 		
@@ -50,6 +53,52 @@ function validateForm()
 	
 	}
 }
+
+
+function deleteProduct(prodId)
+{
+
+		var r = confirm("Press OK to proceed with deleting");
+		
+		if(!r) return;
+
+
+	var ajax = new XMLHttpRequest();
+			var param = "http://zamger.etf.unsa.ba/wt/proizvodi.php";
+			
+			var product = {
+			
+				id:prodId
+				
+				
+				
+				};
+				
+			
+			ajax.onreadystatechange = function() {// Anonimna funkcija
+			if (ajax.readyState == 4 && ajax.status == 200)
+			{
+					alert("You have successfully deleted the product.");
+					loadAll();
+				
+				}
+			if (ajax.readyState == 4 && ajax.status == 404)
+				{
+					
+					alert("Error: Product couldn't be deleted");
+						
+				}
+		}
+		
+		
+			  ajax.open("POST", param, true);
+				ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			ajax.send("akcija=brisanje" + "&brindexa=16308" + "&proizvod=" + JSON.stringify(product));
+
+
+}
+
+
 
 
 window.addEventListener('load',function(){
