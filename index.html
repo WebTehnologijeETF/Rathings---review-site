@@ -9,6 +9,12 @@
 <link rel="stylesheet" type="text/css" href="main.css">
 <link rel="shortcut icon" type="image/png" href="/images/favicon.png"/>
 <script src="load.js"></script>
+<script src="gvalidation.js"></script>
+<script src="login-validation.js"></script>
+<script src="contact-validation.js"></script>
+<script src="products-validation.js"></script>
+<script src="register-validation.js"></script>
+<script src="add.js"></script>
 </head>
 <body id="main_body">
 
@@ -36,8 +42,8 @@
 </div>
 
 <div id="login_div">
-<a onclick='loadPage("login.html")'; class="login_label">Log in</a>
-<a onclick='loadPage("register.html")'; class="login_label">Register</a>
+<a onclick='loadPage("login.html");' class="login_label">Log in</a>
+<a onclick='loadPage("register.html");' class="login_label">Register</a>
 </div>
 
 
@@ -47,20 +53,20 @@
 
 <ul id="left_menu">
 <li class="menu_item">
-<a onclick='loadPage("index.html")';>HOME</a>
+<a onclick='loadPage("index.html");'>HOME</a>
 
 </li> 
 
 <li class="menu_item">
-<a onclick='loadPage("about.html")';>ABOUT US</a>
+<a onclick='loadPage("about.html");'>ABOUT US</a>
 </li>
 
 <li class="menu_item">
-<a onclick='loadPage("products.html")';>PRODUCTS</a>
+<a onclick='loadPage("products.html");'>PRODUCTS</a>
 </li>
 
 <li class="menu_item">
-<a>ADD PRODUCT</a> <!-- page still not implemented -->
+<a onclick='loadPage("products-table.html");'>MANAGE PRODUCTS</a> 
 </li>
 </ul>
 
@@ -72,7 +78,7 @@
 </li>
 
 <li class="menu_item">
-<a onclick='loadPage("contact.html")';>CONTACT US</a>
+<a onclick='loadPage("contact.html");'>CONTACT US</a>
 </li>
 </ul>
 

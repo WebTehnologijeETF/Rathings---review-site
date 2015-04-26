@@ -1,5 +1,5 @@
 
-function validateForm()
+function validateFormP()
 {
 
 	valid = true;
@@ -9,7 +9,8 @@ function validateForm()
 	return valid;
 }
 
-window.addEventListener('load',function(){
+function fieldsValidationP()
+{
 
 var valid = true;
 
@@ -38,4 +39,4 @@ function() { checkRating('el1');});
 
 }
 
-});
+}

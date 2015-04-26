@@ -1,5 +1,5 @@
 
-function validateForm()
+function validateFormAdd()
 {
 	valid = true;
 	checkPName('el0');
@@ -13,34 +13,18 @@ function validateForm()
 
 function prepareForUpdate(prodId)
 {
-	loadPage('updateform.html');
-	fieldsValidation();
+	loadPageWithId('updateform.html', prodId);
 	
-	if(document.getElementById("upform").addEventListener)
-{
-
-document.getElementById("upform").addEventListener( "submit", 
-function() { updateProduct(prodId);});
 	
-
-
-}
-
-
-else
-{
-	document.getElementById("upform").attachEvent( "onsubmit", 
-function() { updateProduct(prodId);});
-
-
-}
+	
 
 }
 
 
 function updateProduct(prodId)
 {
-	if(!validateForm())
+	
+	if(!validateFormAdd())
 		return false;
 		
 	else
@@ -97,7 +81,7 @@ function addProduct()
 	
 
 	
-	if(!validateForm())
+	if(!validateFormAdd())
 		return false;
 	else
 	{
@@ -189,11 +173,12 @@ function deleteProduct(prodId)
 
 
 
-function fieldsValidation()
+function fieldsValidationAdd()
 {
 
 
 var valid = true;
+
 
 if(document.getElementById("el0").addEventListener)
 {

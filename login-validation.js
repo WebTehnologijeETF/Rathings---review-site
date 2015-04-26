@@ -1,6 +1,6 @@
 
 
-function validateForm()
+function validateFormL()
 {
 	valid = true;
 	
@@ -11,7 +11,8 @@ function validateForm()
 }
 
 
-window.addEventListener('load',function(){
+function fieldsValidationL()
+{
 
 
 var valid = true;
@@ -41,4 +42,4 @@ function() { checkPass('el1');});
 
 
 
-});
+}

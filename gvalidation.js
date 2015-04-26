@@ -398,7 +398,20 @@ function checkCountry(id)
 			
 			ajax.onreadystatechange = function() {// Anonimna funkcija
 			if (ajax.readyState == 4 && ajax.status == 200)
-				resolveError(id[2]);
+			{
+				var country = JSON.parse(ajax.responseText)[0].name;
+				if(c.value.toUpperCase() == country.toUpperCase() )
+					resolveError(id[2]);
+					else
+					{
+						setError(id[2], "The country you entered doesn't exist");
+					valid = false;
+					
+					
+					}
+					
+					
+			}
 			if (ajax.readyState == 4 && ajax.status == 404)
 				{
 					setError(id[2], "The country you entered doesn't exist");
@@ -435,7 +448,7 @@ function checkCallingCode(id)
 	else
 	{
 			var ajax = new XMLHttpRequest();
-			var param = "https://restcountries.eu/rest/v1/callingcode/" + c.value;
+			var param = "https://restcountries.eu/rest/v1/callingcode/" + c.value
 			
 			ajax.onreadystatechange = function() {// Anonimna funkcija
 			if (ajax.readyState == 4 && ajax.status == 200)
@@ -444,7 +457,7 @@ function checkCallingCode(id)
 				var country = document.getElementById('el5').value;
 			
 				var data = JSON.parse(ajax.responseText);
-				if(data[0].name != country)
+				if(data[0].name.toUpperCase() != country.toUpperCase())
 				{
 					setError(id[2], "The calling code you entered doesnt't match the country");
 					valid = false;

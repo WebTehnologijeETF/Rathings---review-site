@@ -10,10 +10,55 @@ function loadPage(page)
 			if (ajax.readyState == 4 && ajax.status == 200)
 			{
 				
+				
 				document.getElementById('main_body').innerHTML = getBody(ajax.responseText);
+				
+					
+					
+				
+				fieldsValidation(page);
 				
 					if(page=='products-table.html')
 				loadProducts();
+				
+				
+			}
+			if (ajax.readyState == 4 && ajax.status == 404)
+				{
+					alert("Error loading page");
+				
+				
+				}
+		}
+			ajax.open("GET", page, true);
+			ajax.send();
+
+
+}
+
+
+function loadPageWithId(page, id)
+{
+
+	
+	var ajax = new XMLHttpRequest();
+			
+			
+			ajax.onreadystatechange = function() {// Anonimna funkcija
+			if (ajax.readyState == 4 && ajax.status == 200)
+			{
+				
+				
+				document.getElementById('main_body').innerHTML = getBody(ajax.responseText);
+				
+				if(page=="updateform.html")
+					updateId(id);
+					
+					
+				
+				fieldsValidation(page);
+				
+				
 				
 				
 			}
@@ -44,6 +89,7 @@ function getBody(content)
 function loadAll()
 {
 	loadPage('products-table.html');
+	
 	
 
 }
@@ -107,6 +153,50 @@ function loadProducts()
 			ajax.open("GET", param, true);
 			ajax.send();
 
+
+
+}
+
+
+function fieldsValidation(page)
+{
+	if(page == 'login.html')
+		fieldsValidationL();
+	else if (page=="contact.html")
+		fieldsValidationC();
+	else if(page=="register.html")
+		fieldsValidationR();
+	else if(page=="products.html" || page=="products-table.html")
+		fieldsValidationP();
+	else if(page=="addform.html" || page=="updateform.html")
+		fieldsValidationAdd();
+	
+}
+
+
+function updateId(prodId)
+{
+
+	
+
+	if(document.getElementById("upform").addEventListener)
+{
+
+document.getElementById("upform").addEventListener( "submit", 
+function() { updateProduct(prodId);});
+	
+
+
+}
+
+
+else
+{
+	document.getElementById("upform").attachEvent( "onsubmit", 
+function() { updateProduct(prodId);});
+
+
+}
 
 
 }

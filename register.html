@@ -36,8 +36,8 @@
 </div>
 
 <div id="login_div">
-<a onclick='loadPage("login.html")'; class="login_label">Log in</a>
-<a onclick='loadPage("register.html")'; class="login_label">Register</a>
+<a onclick='loadPage("login.html");' class="login_label">Log in</a>
+<a onclick='loadPage("register.html");' class="login_label">Register</a>
 </div>
 
 
@@ -47,20 +47,20 @@
 
 <ul id="left_menu">
 <li class="menu_item">
-<a onclick='loadPage("index.html")';>HOME</a>
+<a onclick='loadPage("index.html");'>HOME</a>
 
 </li> 
 
 <li class="menu_item">
-<a onclick='loadPage("about.html")';>ABOUT US</a>
+<a onclick='loadPage("about.html");'>ABOUT US</a>
 </li>
 
 <li class="menu_item">
-<a onclick='loadPage("products.html")';>PRODUCTS</a>
+<a onclick='loadPage("products.html");'>PRODUCTS</a>
 </li>
 
 <li class="menu_item">
-<a>ADD PRODUCT</a> <!-- page still not implemented -->
+<a onclick='loadPage("products-table.html");'>MANAGE PRODUCTS</a> 
 </li>
 </ul>
 
@@ -72,7 +72,7 @@
 </li>
 
 <li class="menu_item">
-<a onclick='loadPage("contact.html")';>CONTACT US</a>
+<a onclick='loadPage("contact.html");'>CONTACT US</a>
 </li>
 </ul>
 
@@ -82,7 +82,7 @@
 </div>
 
 
-<form method="post" action="something.php" onsubmit="return validateForm();">
+<form method="post" action="something.php" onsubmit="return validateFormR();">
 <div id="register" class="container">
 <h2>Register</h2>
 <p class="note"><i>Note: Fields marked with * are mandatory</i></p>

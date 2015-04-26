@@ -1,6 +1,6 @@
 
 
-function validateForm()
+function validateFormR()
 {
 
 	valid = true;
@@ -19,7 +19,8 @@ function validateForm()
 }
 
 
-window.addEventListener('load',function(){
+function fieldsValidationR()
+{
 
 
 var valid = true;
@@ -96,4 +97,4 @@ function() { checkPhone('el7');});
 }
 
 
-});
+}
