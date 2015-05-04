@@ -1,5 +1,5 @@
 
-function validateForm()
+function validateFormC()
 {
 
 	valid = true;
@@ -13,7 +13,8 @@ function validateForm()
 }
 
 
-window.addEventListener('load',function(){
+function fieldsValidationC()
+{
 
 
 var valid = true;
@@ -60,4 +61,4 @@ function() { checkMessage('el5');});
 }
 
 
-});
+}

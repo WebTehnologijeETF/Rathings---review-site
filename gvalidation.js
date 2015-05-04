@@ -5,6 +5,8 @@ function setError(divNumber, text)
 	var t = document.getElementsByClassName('celement')[divNumber];
 	if(t==null)
 		t = document.getElementsByClassName('selement')[divNumber];
+		
+	if((" " + t.className + " " ).indexOf( " "+"ctrl_error"+" " ) <= -1) // if it doesn't contain the error class
 	t.className += " ctrl_error";
 	d.className += " error_img";
 	d.getElementsByTagName('p')[0].innerHTML = text;
@@ -51,6 +53,15 @@ function validRating(text)
 
 }
 
+function validDigit(text)
+{
+	var reg = /^[0-9]+$/;
+	if(!reg.test(text)) return false;
+	return true;
+
+
+}
+
 function validPass(text)
 {
 	// password must contain at least one digit and one capital letter
@@ -69,6 +80,23 @@ function checkName(id)
 	var c = document.getElementById(id);
 	if(isEmpty(c.value))
 	{	setError(id[2], 'You must enter your first name.');
+		validC = false;
+	}
+	else
+	{
+			resolveError(id[2]);
+			
+	}
+	
+
+}
+
+
+function checkPName(id)
+{
+	var c = document.getElementById(id);
+	if(isEmpty(c.value))
+	{	setError(id[2], 'You must enter the product name.');
 		validC = false;
 	}
 	else
@@ -140,6 +168,22 @@ function checkMessage(id)
 	if(isEmpty(c.value))
 	{
 		setError(id[2], 'You must enter your message.');
+		valid = false;
+	}
+	else
+	{
+			resolveError(id[2]);
+			
+	}
+
+}
+
+function checkDescription(id)
+{
+	var c = document.getElementById(id);
+	if(isEmpty(c.value))
+	{
+		setError(id[2], 'You must enter a description.');
 		valid = false;
 	}
 	else
@@ -228,6 +272,56 @@ function checkImage(id)
 
 }
 
+function checkPImage(id)
+{
+	// permitted extensions: .jpg, .jpeg, .png, .gif, .bmp, .ico
+	
+	var ext = ["jpg", "png", "gif", "bmp", "ico"];
+	var c = document.getElementById(id);
+	var b = false;
+	
+	
+	
+	
+	
+	if(c.value.length >=4)
+	{
+		s = c.value.substr(c.value.length - 3);
+		
+	for(var i=0;i<ext.length;i++)
+		if(s == ext[i]) b = true;
+		
+	if(c.value.length >=5 && c.value.substr(c.value.length - 4) == 'jpeg')
+		b = true;
+		
+	}
+	else 
+	{
+		
+	
+		setError(id[2], 'You must provide a product image.');
+		valid = false;
+		b = false; // empty
+		return;
+		
+	}
+		
+		
+	if(!b)
+	{
+		setError(id[2], "Invalid picture format");
+		valid = false;
+		
+	
+	}
+	else
+	
+		
+		resolveError(id[2]);
+	
+
+}
+
 function checkValidPass(id)
 {
 
@@ -264,10 +358,10 @@ function checkPassConf(id)
 {
 	var c = document.getElementById(id);
 
-	var p = document.getElementById('el6'); // first password
+	var p = document.getElementById('el9'); // first password
 	
 	if(isEmpty(c.value))
-	{	setError(id[2], 'You must confirm your password.');
+	{	setError(id[2] + id[3], 'You must confirm your password.');
 		valid = false;
 	}
 	else if(p.value != null && c.value != p.value)
@@ -276,12 +370,142 @@ function checkPassConf(id)
 	}
 	else
 	{
-			resolveError(id[2]);
+			resolveError(id[2] + id[3]);
 			
 	}
 	
 	
 
+
+}
+
+
+function checkCountry(id)
+{
+	var c = document.getElementById(id);
+
+	
+	
+	if(isEmpty(c.value))
+	{	setError(id[2], 'You must enter your country.');
+		valid = false;
+	}
+	
+	else
+	{
+			var ajax = new XMLHttpRequest();
+			var param = "https://restcountries.eu/rest/v1/name/" + c.value;
+			
+			ajax.onreadystatechange = function() {// Anonimna funkcija
+			if (ajax.readyState == 4 && ajax.status == 200)
+			{
+				var country = JSON.parse(ajax.responseText)[0].name;
+				if(c.value.toUpperCase() == country.toUpperCase() )
+					resolveError(id[2]);
+					else
+					{
+						setError(id[2], "The country you entered doesn't exist");
+					valid = false;
+					
+					
+					}
+					
+					
+			}
+			if (ajax.readyState == 4 && ajax.status == 404)
+				{
+					setError(id[2], "The country you entered doesn't exist");
+					valid = false;
+				
+				
+				}
+		}
+			ajax.open("GET", param, true);
+			ajax.send();
+
+			
+			
+	}
+
+
+}
+
+
+function checkCallingCode(id)
+{
+	var c = document.getElementById(id);
+
+	
+		if(isEmpty(c.value))
+	{
+		setError(id[2], 'You must enter your country calling code');
+		valid = false;
+	
+	}
+
+
+	
+	else
+	{
+			var ajax = new XMLHttpRequest();
+			var param = "https://restcountries.eu/rest/v1/callingcode/" + c.value
+			
+			ajax.onreadystatechange = function() {// Anonimna funkcija
+			if (ajax.readyState == 4 && ajax.status == 200)
+			{
+			
+				var country = document.getElementById('el5').value;
+			
+				var data = JSON.parse(ajax.responseText);
+				if(data[0].name.toUpperCase() != country.toUpperCase())
+				{
+					setError(id[2], "The calling code you entered doesn't match the country");
+					valid = false;
+				
+				}
+				else
+				resolveError(id[2]);
+				
+				}
+			if (ajax.readyState == 4 && ajax.status == 404)
+				{
+					setError(id[2], "The calling code you entered doesn't exist");
+					valid = false;
+				
+				
+				}
+		}
+			ajax.open("GET", param, true);
+			ajax.send();
+
+			
+			
+	}
+
+
+}
+
+
+function checkPhone(id)
+{
+	var c = document.getElementById(id);
+
+	
+		if(isEmpty(c.value))
+	{
+		setError(id[2], 'You must enter your phone number');
+		valid = false;
+	
+	}
+	else if(!validDigit(c.value))
+	{
+		setError(id[2], 'You must enter a valid phone number');
+		valid = false;
+	
+	}
+	else
+		resolveError(id[2]);
+	
 
 }
 

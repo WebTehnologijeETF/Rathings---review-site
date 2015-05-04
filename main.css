@@ -167,6 +167,7 @@ body
 h2
 {
 	color:#CE0058;
+	
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:18pt;
 	text-align:left;
@@ -220,6 +221,13 @@ p, a
 {
 	font-family:Arial, Helvetica, sans-serif;
 	text-decoration:none;
+
+}
+
+a
+{
+	cursor:pointer;
+
 
 }
 
@@ -456,6 +464,22 @@ table, th, tr, td
 
 }
 
+.textbox_small
+{
+	border:1px solid grey;
+	
+	padding:5px;
+	
+	height:15px;
+	border-radius:5px;
+	width:50%;
+	
+	float:right;
+	
+
+
+}
+
 .listbox
 {
 	border:1px solid grey;
@@ -476,6 +500,17 @@ table, th, tr, td
 	width:30%;
 
 }
+
+.numeric_small
+{
+	border:1px solid grey;
+	padding:5px;
+	height:15px;
+	border-radius:5px;
+	width:25%;
+
+}
+
 .textbox:focus
 {
 	
@@ -483,6 +518,13 @@ table, th, tr, td
 	border:1px solid grey;
 	
 	
+
+}
+
+.textbox_small:focus
+{
+	box-shadow: 0px 0px 5px #005EB8;
+	border:1px solid grey;
 
 }
 
@@ -516,6 +558,12 @@ table, th, tr, td
 
 }
 
+.numeric_small:focus
+{
+	box-shadow: 0px 0px 5px #005EB8;
+	border:1px solid grey;
+
+}
 
 .textarea
 {
@@ -749,7 +797,7 @@ th
 #r_buttons
 {
 	margin-left:30%;
-	top:800px;
+	top:1000px;
 	position:absolute;
 	padding-bottom:100px;
 
@@ -1109,4 +1157,89 @@ a:visited
 }
 
 
+#addprod
+{
+	color:#CE0058;
+	margin-bottom:50px;
+	margin-top:50px;
+	
 
+
+}
+
+#addprod > label
+{
+
+	font-size:14pt;
+
+}
+
+.lab_link > label
+{
+	cursor:pointer;
+	
+	
+
+}
+
+.lab_link > label:hover
+{
+	text-decoration:underline;
+	
+
+
+}
+
+.update-delete
+{
+	position:relative;
+	left:0%;
+	color:#CE0058;
+	margin-top:10%;
+	
+	bottom:0px;
+	width:50%;
+	float:right;
+
+}
+
+.update-delete > label
+{
+	padding:10px;
+
+
+}
+
+#message
+{
+	color:green;
+	width:100%;
+	top:200px;
+	position:absolute;
+	left:100px;
+
+
+}
+
+#back
+{
+	position:absolute;
+	left:100px;
+	top:250px;
+	color:#CE0058;
+
+}
+
+#back > p
+{	
+	cursor:pointer;
+	font-size:16pt;
+	
+
+}
+
+#back > p:hover
+{
+	text-decoration:underline;
+
+}
