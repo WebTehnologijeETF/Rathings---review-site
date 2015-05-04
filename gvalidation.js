@@ -6,7 +6,7 @@ function setError(divNumber, text)
 	if(t==null)
 		t = document.getElementsByClassName('selement')[divNumber];
 		
-	if((" " + t.className + " " ).indexOf( " "+"ctrl_error"+" " ) > -1) // if it already contains error class
+	if((" " + t.className + " " ).indexOf( " "+"ctrl_error"+" " ) <= -1) // if it doesn't contain the error class
 	t.className += " ctrl_error";
 	d.className += " error_img";
 	d.getElementsByTagName('p')[0].innerHTML = text;
@@ -459,7 +459,7 @@ function checkCallingCode(id)
 				var data = JSON.parse(ajax.responseText);
 				if(data[0].name.toUpperCase() != country.toUpperCase())
 				{
-					setError(id[2], "The calling code you entered doesnt't match the country");
+					setError(id[2], "The calling code you entered doesn't match the country");
 					valid = false;
 				
 				}
@@ -469,7 +469,7 @@ function checkCallingCode(id)
 				}
 			if (ajax.readyState == 4 && ajax.status == 404)
 				{
-					setError(id[2], "The calling code you entered doesnt't exist");
+					setError(id[2], "The calling code you entered doesn't exist");
 					valid = false;
 				
 				

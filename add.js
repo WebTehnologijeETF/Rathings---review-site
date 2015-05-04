@@ -37,7 +37,9 @@ function updateProduct(prodId)
 				id:prodId,
 				naziv:document.getElementById('el0').value,
 				opis:document.getElementById('el3').value,
-				slika:document.getElementById('el2').value
+				kategorija:document.getElementById('el1').value,
+				slika:document.getElementById('el2').value,
+				ocjena:0
 				
 				
 				};
@@ -92,7 +94,9 @@ function addProduct()
 			
 				naziv:document.getElementById('el0').value,
 				opis:document.getElementById('el3').value,
-				slika:document.getElementById('el2').value
+				kategorija:document.getElementById('el1').value,
+				slika:document.getElementById('el2').value,
+				ocjena:0
 				
 				
 				};
