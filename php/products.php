@@ -609,6 +609,10 @@
 <label class="prod2">Category: Vehicles</label> <br>
 </div>
 
+<div class="news_separator">
+
+</div>
+
 <div class="single_product">
 <img src="/images/car.png" alt="product" class="_img_prod">
 <label class="prod">Subaru X4</label>
@@ -616,11 +620,19 @@
 <label class="prod2">Category: Vehicles</label> <br>
 </div>
 
+<div class="news_separator">
+
+</div>
+
 <div class="single_product">
 <img src="/images/phone.png" alt="product" class="_img_prod">
 <label class="prod">Iphone 6</label>
  <label class="rating_mark right-side">9.0</label> <br>
 <label class="prod2">Category: Technology</label> <br>
+</div>
+
+<div class="news_separator">
+
 </div>
 
 <div class="single_product">
