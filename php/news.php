@@ -39,10 +39,10 @@
 	{
 		$fileString = file($dir . '/' . $file, FILE_IGNORE_NEW_LINES);
 		
-		$single["date"] = $fileString[0];
-		$single["author"] = $fileString[1];
-		$single["title"] = ucfirst(strtolower($fileString[2]));
-		$single["image"] = $fileString[3];
+		$single["date"] = htmlspecialchars($fileString[0]);
+		$single["author"] = htmlspecialchars($fileString[1]);
+		$single["title"] = htmlspecialchars(ucfirst(strtolower($fileString[2])));
+		$single["image"] = htmlspecialchars($fileString[3]);
 		
 		$fileOutput = '<div class="single_news">' . '<h3>' . 
 		 $single["title"] . '</h3>' .
@@ -80,17 +80,17 @@
 				$i++;
 			}
 			
-			$fileOutput .= $text;
-			$single["text"] = $text;
+			$fileOutput .= htmlspecialchars($text);
+			$single["text"] = htmlspecialchars($text);
 			
 			$fileOutput .= '</p></div>';
 			
 			if($i < count($fileString) - 1) // there is details text
 			{	
-				$details = "";
+				$details = '';
 				while($i < count($fileString))
 					{
-						$details .= $fileString[$i] . " ";
+						$details .= $fileString[$i] . ' ';
 						$i++;
 					}
 				

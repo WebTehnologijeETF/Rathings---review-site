@@ -3,7 +3,7 @@
 <head>
 <title>Contact us</title>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="../main.css">
+<link rel="stylesheet" type="text/css" href="../css/main.css">
 <link rel="shortcut icon" type="image/png" href="/images/favicon.png"/>
 <script src="../js/gvalidation.js"></script>
 <script src="../js/contact-validation.js"></script>

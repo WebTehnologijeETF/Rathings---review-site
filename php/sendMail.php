@@ -9,9 +9,11 @@ $subject = "User contact mail";
 
 $reply = $_SESSION["email"];
 
+echo "blabla " . $_SESSION["name"];
 
 
- $headers = "CC: $cc\r\nReply-to: $reply";
+
+ $headers = "CC:" . $cc . "\r\n" . "Reply-to:" . $reply;
 
 $msg =  $_SESSION["name"] . " " . $_SESSION["lastname"] . "\r\n" .
 "Site rating: " . $_SESSION["rating"] . "\r\n" .
@@ -24,8 +26,8 @@ mail($to,$subject,$msg,$headers);
 
 session_destroy();
 
-header("Location: contactMessage.php");
-die();
+//header("Location: contactMessage.php");
+//die();
 
 
 
