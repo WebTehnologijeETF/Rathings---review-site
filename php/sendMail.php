@@ -3,13 +3,13 @@
 session_start(); 
 
 $to = "oljubuncic1@etf.unsa.ba";
-$cc = "orhanljubuncic@yahoo.com"; // tutor's mail TODO
-$subject = "User contact mail";
+$cc = "hodzic.k@gmail.com";
+$subject = "Rathings: User contact mail";
 
 
 $reply = $_SESSION["email"];
 
-echo "blabla " . $_SESSION["name"];
+
 
 
 
@@ -26,8 +26,8 @@ mail($to,$subject,$msg,$headers);
 
 session_destroy();
 
-//header("Location: contactMessage.php");
-//die();
+header("Location: contactMessage.php");
+die();
 
 
 

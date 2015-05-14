@@ -9,7 +9,7 @@
 </head>
 <body id="main_body">
 
-<div id="logo">
+
 
 
 <?php require "header.php"; ?>
