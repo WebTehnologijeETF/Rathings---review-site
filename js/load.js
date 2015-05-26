@@ -290,3 +290,29 @@ function loadNews(object)
 			ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			ajax.send("single=" + object);
 }
+
+function loadProductss(object)
+{
+	var ajax = new XMLHttpRequest();
+			
+			object = JSON.stringify(object);
+			ajax.onreadystatechange = function() {// Anonimna funkcija
+			if (ajax.readyState == 4 && ajax.status == 200)
+			{
+				
+				
+				document.getElementById('main_body').innerHTML = getBody(ajax.responseText);
+				window.scrollTo(0,0);
+				
+			}
+			if (ajax.readyState == 4 && ajax.status == 404)
+				{
+					alert("Error loading page");
+				
+				
+				}
+		}
+			ajax.open("POST", "singleProduct.php", true);
+			ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			ajax.send("single=" + object);
+}

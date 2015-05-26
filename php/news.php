@@ -5,14 +5,20 @@
 
 
 
-	$dir = "novosti";
-	
-	$news = scandir($dir);
-	
-
 	
 	
-	// sorting by date
+	 $con = new PDO("mysql:dbname=rathings;host=localhost;charset=utf8", "adminnxLCtAQ", "f9gbwSlXITyh");
+     $con->exec("set names utf8");
+     $result = $con->query("select id, title, caption, text, author, image, UNIX_TIMESTAMP(date) date2 from news order by date desc");
+	 
+     if (!$result) {
+          $error = $con->errorInfo();
+          print "SQL error: " . $error[2];
+          exit();
+     }
+	
+	
+	/*// sorting by date
 	
 	$files = array();
 	
@@ -28,31 +34,36 @@
 	$files = array_keys($files);
 	
 	
-	$single = array(); 
-	
-	
-	
+	$single = array(); */
 	
 	$counter = 0;
 	
-	foreach($files as $file)
-	{
-		$fileString = file($dir . '/' . $file, FILE_IGNORE_NEW_LINES);
-		
-		$single["date"] = htmlspecialchars($fileString[0]);
-		$single["author"] = htmlspecialchars($fileString[1]);
-		$single["title"] = htmlspecialchars(ucfirst(strtolower($fileString[2])));
-		$single["image"] = htmlspecialchars($fileString[3]);
-		
+	$numb = $con->query("SELECT COUNT(*) FROM news");
+		  $numb = $numb->fetchColumn();
+	
+	
+	
+	foreach ($result as $single) {
+         
+		  
+		  $authorq = $con->prepare("SELECT name, lastname FROM users WHERE id=?");
+		  $authorq->bindValue(1, $single['author'], PDO::PARAM_INT);
+		  $authorq->execute();
+		  
+		  $authorfull = $authorq->fetch();
+		  $author = $authorfull['name'] . ' ' . $authorfull['lastname'];
+		  
+		  
+		  
 		$fileOutput = '<div class="single_news">' . '<h3>' . 
 		 $single["title"] . '</h3>' .
 		 '<img src="/images/author.png" alt="author" class="news_icon">' .
-		 '<label class="news_author">' . $single["author"] . '</label>' .
+		 '<label class="news_author">' . $author . '</label>' .
 		 '<img src="/images/date.png" alt="date" class="news_icon">' .
-		 '<label class="news_date">' . $single["date"] . '</label> <br><br>' .
+		 '<label class="news_date">' . date("d.m.Y. (h:i)", $single['date2']) . '</label> <br><br>' .
 		 '<div class="img_div">';
 		 
-		 if($fileString[3] !=  '')
+		 if($single['image'] != null)
 		 {			 // there is image
 			$fileOutput .= '<img src="' . $single["image"] . '" class="_img" alt="news">';
 			
@@ -62,46 +73,20 @@
 			
 			$fileOutput .= '<div class="news_text"><p>';
 			
-			$i = 4;
-			$text = "";
 			
-			while($i < count($fileString))
-			{
-				if(strcmp(trim($fileString[$i]), '--') == 0)
-				{
-					// end of first text
-					$i++;
-					break;
-					
-				}
-					
-				
-				$text .= $fileString[$i] . " ";
-				$i++;
-			}
 			
-			$fileOutput .= htmlspecialchars($text);
-			$single["text"] = htmlspecialchars($text);
-			
+			$fileOutput .= $single['caption'];
 			$fileOutput .= '</p></div>';
 			
-			if($i < count($fileString) - 1) // there is details text
+			if($single['text'] != null) // there is details text
 			{	
-				$details = '';
-				while($i < count($fileString))
-					{
-						$details .= $fileString[$i] . ' ';
-						$i++;
-					}
-				
-				$single["details"] = $details;
+				$single['author'] = $author;
 				$fileOutput .= "<a onclick='loadNews(" . json_encode($single) . ")'>Details</a>";
 				
 			}
 				
 			$fileOutput .= '</div>';
-
-					if($counter != count($files) - 1) // not last
+			if($counter != $numb - 1) // not last
 						$fileOutput .= '<div class="news_separator"></div>';
 				
 		echo  $fileOutput;
@@ -109,7 +94,23 @@
 
 		
 		$counter++;
-	}
+		  
+		  
+
+		  
+     }
+	
+	
+	
+	
+	
+	
+	
+		
+		
+		
+		
+	
 	
 	/* <div class="single_news">
 <h3>HYUNDAI RELEASES NEW MODEL</h3>

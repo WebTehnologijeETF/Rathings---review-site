@@ -590,62 +590,9 @@
 </div>
 
 
-<div class="single_product">
-
-<img src="/images/phone.png" alt="product" class="_img_prod">
-<label class="prod">S6 Galaxy Tablet</label>
- <label class="rating_mark right-side">10.0</label> <br>
-<label class="prod2">Category:Technology</label> <br>
-</div>
-
-<div class="news_separator">
-
-</div>
-
-<div class="single_product">
-<img src="/images/car.png" alt="product" class="_img_prod">
-<label class="prod">Passat 7</label>
- <label class="rating_mark right-side">10.0</label> <br>
-<label class="prod2">Category: Vehicles</label> <br>
-</div>
-
-<div class="news_separator">
-
-</div>
-
-<div class="single_product">
-<img src="/images/car.png" alt="product" class="_img_prod">
-<label class="prod">Subaru X4</label>
- <label class="rating_mark right-side">9.0</label> <br>
-<label class="prod2">Category: Vehicles</label> <br>
-</div>
-
-<div class="news_separator">
-
-</div>
-
-<div class="single_product">
-<img src="/images/phone.png" alt="product" class="_img_prod">
-<label class="prod">Iphone 6</label>
- <label class="rating_mark right-side">9.0</label> <br>
-<label class="prod2">Category: Technology</label> <br>
-</div>
-
-<div class="news_separator">
-
-</div>
-
-<div class="single_product">
-<img src="/images/movie.png" alt="product" class="_img_prod">
-<label class="prod">Theory of everything</label>
- <label class="rating_mark right-side">8.3</label> <br>
-<label class="prod2">Category: Movies</label> <br>
-</div>
+<?php include 'loadProducts.php' ?>
 
 
-
-
-</div>
 <div class="pagination">
 
 <input type="button" value="<<" class="button page_button">
@@ -655,6 +602,7 @@
 <input type="button" value=">>" class="button page_button">
 
 
+</div>
 </div>
 </div>
 

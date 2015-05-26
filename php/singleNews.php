@@ -23,18 +23,18 @@ $s = $_POST["single"];
 $d = json_decode($s, true);
 //echo $d["title"];
 
-$output = '<div id="singleNews"><h2>' . $d["title"] . '</h2>' .
+$output = '<div id="singleNews"><h2>' . htmlspecialchars($d["title"]) . '</h2>' .
 '<img src="/images/author.png" alt="author" class="news_icon">' .
-'<label class="news_author">' . $d["author"] . '</label>' .
+'<label class="news_author">' . htmlspecialchars($d["author"]) . '</label>' .
 '<img src="/images/date.png" alt="date" class="news_icon">' .
-'<label class="news_date">' . $d["date"] . '</label><br><br>' .
-'<div class="news_text_single"><p>' . $d["text"] . '</p></div>';
+'<label class="news_date">' . date("d.m.Y. (h:i)", htmlspecialchars($d['date2'])) . '</label><br><br>' .
+'<div class="news_text_single"><p>' . htmlspecialchars($d["caption"]) . '</p></div>';
 
-if($d["image"] != "") 
+if(htmlspecialchars($d["image"]) != "") 
 	$output .= '<div class="img_div_single"><img src="' .  
-	$d["image"] . '" class="_img" alt="news"></div>';
+	htmlspecialchars($d["image"]) . '" class="_img" alt="news"></div>';
 	
-	$output .= '<div class="details"><p>' . $d["details"] . '</p></div></div>';
+	$output .= '<div class="details"><p>' . htmlspecialchars($d["text"]) . '</p></div></div>';
 
 
 		echo $output;
