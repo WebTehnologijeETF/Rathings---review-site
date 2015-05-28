@@ -211,6 +211,113 @@ function deleteNews(id)
 
 }
 
+function deleteAdmin(id)
+{
+
+		var r = confirm("Press OK to proceed with deleting");
+		
+		if(!r) return;
+
+
+	var ajax = new XMLHttpRequest();
+			var param = "deleteAdmin.php?id=" + id;
+			
+				
+			
+			ajax.onreadystatechange = function() {// Anonimna funkcija
+			if (ajax.readyState == 4 && ajax.status == 200)
+			{
+					alert("You have successfully deleted the admin.");
+					loadPage("adminPanel.php");
+					
+				
+				}
+			if (ajax.readyState == 4 && ajax.status == 404)
+				{
+					
+					alert("Error: Admin couldn't be deleted");
+						
+				}
+		}
+		
+		
+			  ajax.open("GET", param, true);
+				
+			    ajax.send();
+
+
+}
+
+function updateNews(id)
+{
+
+		
+
+
+	var ajax = new XMLHttpRequest();
+			var param = "updateNews.php?id=" + id;
+			
+				
+			
+			ajax.onreadystatechange = function() {// Anonimna funkcija
+			if (ajax.readyState == 4 && ajax.status == 200)
+			{
+					document.getElementById('main_body').innerHTML = getBody(ajax.responseText);
+					
+					
+				
+				}
+			if (ajax.readyState == 4 && ajax.status == 404)
+				{
+					
+					alert("Error: News couldn't be updated");
+						
+				}
+		}
+		
+		
+			  ajax.open("GET", param, true);
+				
+			    ajax.send();
+
+
+}
+
+function updateAdmin(id)
+{
+
+		
+
+
+	var ajax = new XMLHttpRequest();
+			var param = "updateAdmin.php?id=" + id;
+			
+				
+			
+			ajax.onreadystatechange = function() {// Anonimna funkcija
+			if (ajax.readyState == 4 && ajax.status == 200)
+			{
+					document.getElementById('main_body').innerHTML = getBody(ajax.responseText);
+					
+					
+				
+				}
+			if (ajax.readyState == 4 && ajax.status == 404)
+				{
+					
+					alert("Error: Admin couldn't be updated");
+						
+				}
+		}
+		
+		
+			  ajax.open("GET", param, true);
+				
+			    ajax.send();
+
+
+}
+
 
 function deleteReview(id)
 {

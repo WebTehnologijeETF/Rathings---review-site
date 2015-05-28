@@ -162,6 +162,26 @@ body
 
 }
 
+#news2
+{
+	
+	width:30%;
+	min-width:300px;
+	
+	position:relative;
+	top:150px;
+	left:30px;
+	padding-left:15px;
+	padding-right:15px;
+	padding-top:15px;
+	padding-bottom:15px;
+	
+	
+	
+	
+
+}
+
 
 
 h2
@@ -780,6 +800,14 @@ th
 
 }
 
+.rlabel
+{
+	margin-left:20px;
+	margin-top:2px;
+	padding-bottom:150px;
+
+}
+
 .slabel
 {
 	margin-left:0px;
@@ -812,6 +840,15 @@ th
 {
 	margin-left:30%;
 	top:1000px;
+	position:absolute;
+	padding-bottom:100px;
+
+}
+
+#n_buttons
+{
+	margin-left:30%;
+	top:800px;
 	position:absolute;
 	padding-bottom:100px;
 
@@ -1170,7 +1207,6 @@ a:visited
 
 }
 
-
 #addprod
 {
 	color:#CE0058;
@@ -1178,6 +1214,24 @@ a:visited
 	margin-top:50px;
 	
 
+
+}
+
+
+.addprod
+{
+	color:#CE0058;
+	margin-bottom:50px;
+	margin-top:50px;
+	
+
+
+}
+
+.addprod > label
+{
+
+	font-size:14pt;
 
 }
 
@@ -1304,6 +1358,12 @@ a:visited
 
 }
 
+.Mes
+{
+	top:150px;
+
+}
+
 #singleNews
 {
 	width:50%;
@@ -1385,12 +1445,28 @@ a:visited
 
 #reviews1
 {
-	width:30%;
-	min-width:300px;
+	width:25%;
+	min-width:250px;
 	
 	position:absolute;
-	top:158px;
-	left:50%;
+	top:280px;
+	left:38%;
+	padding-left:15px;
+	padding-right:15px;
+	padding-top:15px;
+	padding-bottom:0px;
+
+
+}
+
+#admins
+{
+	width:25%;
+	min-width:250px;
+	
+	position:absolute;
+	top:280px;
+	left:70%;
 	padding-left:15px;
 	padding-right:15px;
 	padding-top:15px;

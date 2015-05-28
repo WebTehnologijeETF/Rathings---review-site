@@ -30,7 +30,7 @@ checkReview();
 			if(isset($_POST['id']))
 		$id = htmlspecialchars($_POST['id']);
 		
-		$con = new PDO("mysql:dbname=rathings;host=localhost;charset=utf8", "adminnxLCtAQ", "f9gbwSlXITyh");
+		$con = new PDO("mysql:dbname=rathings;host=localhost;charset=utf8", "rathingsuser", "rathingspass");
 		 $con->exec("set names utf8");
 		 
 		 $res = $con->prepare("insert into reviews set author_name = ?, author_email = ?, text = ?, rating = ?, product = ?");

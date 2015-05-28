@@ -11,7 +11,7 @@ $loginErr = "";
 
 
 
-$con = new PDO("mysql:dbname=rathings;host=localhost;charset=utf8", "adminnxLCtAQ", "f9gbwSlXITyh");
+$con = new PDO("mysql:dbname=rathings;host=localhost;charset=utf8", "rathingsuser", "rathingspass");
 		 $con->exec("set names utf8");
 		 
 		 $username = htmlspecialchars($_POST['username']);
@@ -31,8 +31,12 @@ $con = new PDO("mysql:dbname=rathings;host=localhost;charset=utf8", "adminnxLCtA
 			}
 			else // ulogovan
 			{
+				foreach($res as $ress)
+					$adminId = $ress['id'];
+				
 				 session_start();
 				 $_SESSION['username'] = htmlspecialchars($_POST['username']);
+				 $_SESSION['id'] = htmlspecialchars($adminId);
 				
 				 header('Location: adminPanel.php');
 				 die();

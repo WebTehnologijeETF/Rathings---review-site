@@ -3,7 +3,7 @@
 	if(isset($_GET['id']))
 $id = htmlspecialchars($_GET['id']);
 
-	$con = new PDO("mysql:dbname=rathings;host=localhost;charset=utf8", "adminnxLCtAQ", "f9gbwSlXITyh");
+	$con = new PDO("mysql:dbname=rathings;host=localhost;charset=utf8", "rathingsuser", "rathingspass");
      $con->exec("set names utf8");
 	 
 	 $res = $con->prepare("delete from news where id = ?");

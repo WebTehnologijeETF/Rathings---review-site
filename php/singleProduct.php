@@ -59,7 +59,7 @@ $output = '<div id="singleProd"><h2>' . htmlspecialchars($d["name"]) . '</h2>' .
 		echo $output;
 		
 		
-		 $con = new PDO("mysql:dbname=rathings;host=localhost;charset=utf8", "adminnxLCtAQ", "f9gbwSlXITyh");
+		 $con = new PDO("mysql:dbname=rathings;host=localhost;charset=utf8", "rathingsuser", "rathingspass");
 		 $con->exec("set names utf8");
 	 
 		$reviews = $con->prepare("select id, text, author_name, author_email, rating, UNIX_TIMESTAMP(date) date2 from reviews where product=? order by date");
@@ -136,7 +136,7 @@ $output = '<div id="singleProd"><h2>' . htmlspecialchars($d["name"]) . '</h2>' .
 <input type="text" id="el1" class="celement textbox <?php if(isset($_POST['rmail'])) toggleBorder($mailErr); ?>" size="40" name="rmail" value="<?php 
      printItem("rmail");?>">
 <div class="error <?php if(isset($_POST['rmail'])) toggleIcon($mailErr); ?>" id="er1"><p class="error_text"><?php if(isset($_POST['rmail'])) echo $mailErr; ?></p></div>
-<input type="text" id="el1" class="celement textbox <?php if(isset($_POST['rating'])) toggleBorder($ratingErr); ?>" size="40" name="rating" value="<?php 
+<input type="text" id="el2" class="celement textbox <?php if(isset($_POST['rating'])) toggleBorder($ratingErr); ?>" size="40" name="rating" value="<?php 
      printItem("rating");?>"> <br>
 <div class="error <?php if(isset($_POST['rating'])) toggleIcon($ratingErr); ?>" id="er2"><p class="error_text"><?php if(isset($_POST['rating'])) echo $ratingErr; ?></p></div>
 <textarea id="el3" class="celement textarea <?php if(isset($_POST['rtext'])) toggleBorder($textErr); ?>" cols="30" rows="7" name="rtext"><?php 

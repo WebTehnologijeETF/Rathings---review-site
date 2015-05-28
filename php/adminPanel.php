@@ -16,14 +16,21 @@
 </head>
 <body id="main_body">
 
-<div id="news" class="container">
+
+<?php require 'adminHeader.php' ?>
+
+<div id="news2" class="container">
 
 <h2>Manage site news</h2>
+
+<div class="addprod lab_link">
+<label onclick="loadPage('addnews.php');">Add news</label>
+</div>
 
 
 <?php
 
-$con = new PDO("mysql:dbname=rathings;host=localhost;charset=utf8", "adminnxLCtAQ", "f9gbwSlXITyh");
+$con = new PDO("mysql:dbname=rathings;host=localhost;charset=utf8", "rathingsuser", "rathingspass");
      $con->exec("set names utf8");
      $result = $con->query("select id, title, caption, text, author, image, UNIX_TIMESTAMP(date) date2 from news order by date desc");
 	 
@@ -78,7 +85,7 @@ $con = new PDO("mysql:dbname=rathings;host=localhost;charset=utf8", "adminnxLCtA
 			$fileOutput .= $single['caption'];
 			$fileOutput .= '</p></div>';
 			
-			$fileOutput .= '<div class="update-delete lab_link"><label onclick="prepareForUpdate(' . $single['id'] . ');">Update</label>
+			$fileOutput .= '<div class="update-delete lab_link"><label onclick="updateNews(' . $single['id'] . ');">Update</label>
 					<label  onclick="deleteNews(' . $single['id'] . ');">Delete</label></div>';
 				
 			$fileOutput .= '</div>';
@@ -116,7 +123,7 @@ $con = new PDO("mysql:dbname=rathings;host=localhost;charset=utf8", "adminnxLCtA
 
 <?php
 
- $con = new PDO("mysql:dbname=rathings;host=localhost;charset=utf8", "adminnxLCtAQ", "f9gbwSlXITyh");
+ $con = new PDO("mysql:dbname=rathings;host=localhost;charset=utf8", "rathingsuser", "rathingspass");
 		 $con->exec("set names utf8");
 	 
 		$reviews = $con->prepare("select id, text, author_name, author_email, rating, UNIX_TIMESTAMP(date) date2 from reviews order by date desc");
@@ -164,6 +171,61 @@ $con = new PDO("mysql:dbname=rathings;host=localhost;charset=utf8", "adminnxLCtA
 		echo '</div>';
 
 ?>
+
+
+<div id="admins">
+<h2>Manage site admins</h2>
+
+<div class="addprod lab_link">
+<label onclick="loadPage('addadmin.php');">Add new Administrator</label>
+</div>
+
+<?php
+
+
+ $con = new PDO("mysql:dbname=rathings;host=localhost;charset=utf8", "rathingsuser", "rathingspass");
+		 $con->exec("set names utf8");
+		 
+		 $a = $con->query("select * from users");
+		 $nu = $con->query("select count(*) from users");
+		 $nu = $nu->fetchColumn();
+		 $countera = 0;
+		 
+		 foreach($a as $admin)
+		 {
+			$adminOutput = '<div class="single_product"><label class="prod">' .
+			$admin['name'] . ' ' . $admin['lastname'] .
+			'</label> <br><label class="prod2">Username: ' . $admin['username'] . '</label> <br>';
+			
+			$adminOutput .= '<div class="update-delete lab_link"><label onclick="updateAdmin(' . $admin['id'] . ');">Update</label>';
+			if($nu > 1)
+					$adminOutput .= '<label  onclick="deleteAdmin(' . $admin['id'] . ');">Delete</label>';
+					$adminOutput .= '</div></div>';
+			
+			if($countera != $nu - 1) // not last
+						$adminOutput .= '<div class="news_separator"></div>';
+			
+			$countera++;
+			
+			echo $adminOutput;
+		 }
+
+/*<div class="single_product">
+
+<label class="prod">Orhan Ljubunčić</label> <br>
+ 
+<label class="prod2">Username: oljubuncic1@etf.unsa.ba</label> <br>
+</div>
+
+<div class="news_separator">
+
+</div>*/
+
+
+
+?>
+
+</div>
 
 </body>
 

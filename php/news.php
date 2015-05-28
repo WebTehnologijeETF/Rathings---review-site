@@ -7,7 +7,7 @@
 
 	
 	
-	 $con = new PDO("mysql:dbname=rathings;host=localhost;charset=utf8", "adminnxLCtAQ", "f9gbwSlXITyh");
+	 $con = new PDO("mysql:dbname=rathings;host=localhost;charset=utf8", "rathingsuser", "rathingspass");
      $con->exec("set names utf8");
      $result = $con->query("select id, title, caption, text, author, image, UNIX_TIMESTAMP(date) date2 from news order by date desc");
 	 
