@@ -26,9 +26,11 @@
 		  $r = 'reviews';
 		  if($reviewsNum == 1) $r = 'review';
          
-		 $productsString = '<div class="single_product">' .
+		 $productsString = '<div class="single_product lab-link">' .
 					'<img src=' . $single['image'] . ' alt="product" class="_img_prod">' .
-					'<label class="prod">' . $single['name'] . '</label>' .
+					'<label class="prod prod3"';
+					$productsString .= "onclick='loadProductss(" . json_encode($single) . ")'>";
+					$productsString .= $single['name'] . '</label>' .
 					 '<label class="rating_mark right-side">' . $single['rating'] . '</label> <br>' .
 					'<label class="prod2">Category:' . $single['category'] . '</label> <br>';
 					

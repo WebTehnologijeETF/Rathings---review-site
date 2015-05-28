@@ -23,7 +23,7 @@ $con = new PDO("mysql:dbname=rathings;host=localhost;charset=utf8", "rathingsuse
 		 
 		 if($res->rowCount() == 0) // wrong user and pass
 			{
-				$loginErr = "Wrong username or password" . $res->rowCount();
+				$loginErr = "Wrong username or password";
 				
 				
 				
