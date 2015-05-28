@@ -174,6 +174,80 @@ function deleteProduct(prodId)
 
 }
 
+function deleteNews(id)
+{
+
+		var r = confirm("Press OK to proceed with deleting");
+		
+		if(!r) return;
+
+
+	var ajax = new XMLHttpRequest();
+			var param = "deleteNews.php?id=" + id;
+			
+				
+			
+			ajax.onreadystatechange = function() {// Anonimna funkcija
+			if (ajax.readyState == 4 && ajax.status == 200)
+			{
+					alert("You have successfully deleted the news.");
+					loadPage("adminPanel.php");
+					
+				
+				}
+			if (ajax.readyState == 4 && ajax.status == 404)
+				{
+					
+					alert("Error: News couldn't be deleted");
+						
+				}
+		}
+		
+		
+			  ajax.open("GET", param, true);
+				
+			    ajax.send();
+
+
+}
+
+
+function deleteReview(id)
+{
+
+		var r = confirm("Press OK to proceed with deleting");
+		
+		if(!r) return;
+
+
+	var ajax = new XMLHttpRequest();
+			var param = "deleteReview.php?id=" + id;
+			
+				
+			
+			ajax.onreadystatechange = function() {// Anonimna funkcija
+			if (ajax.readyState == 4 && ajax.status == 200)
+			{
+					alert("You have successfully deleted the review.");
+					loadPage("adminPanel.php");
+					
+				
+				}
+			if (ajax.readyState == 4 && ajax.status == 404)
+				{
+					
+					alert("Error: Review couldn't be deleted");
+						
+				}
+		}
+		
+		
+			  ajax.open("GET", param, true);
+				
+			    ajax.send();
+
+
+}
 
 
 

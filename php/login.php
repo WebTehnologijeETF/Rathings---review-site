@@ -19,11 +19,11 @@
 
 <?php require "header.php"; ?>
 
+<?php require 'loginValidation.php' ?>
 
 
 
-
-<form method="post" action="something.php" onsubmit="return validateFormL();">
+<form method="post" action="login.php" onsubmit="return validateFormL();">
 <div class="contact" class="container">
 <h2>Log in</h2>
 
@@ -36,10 +36,14 @@
 <div id="r_contact" class="cdiv">
 
 
-<input type="email" id="el0" class="celement textbox" size="40">
-<div class="error" id="er0"><p class="error_text"></p></div>
-<input type="password" id="el1" class="celement textbox" size="40">
-<div class="error" id="er1"><p class="error_text"></p></div>
+<input type="email" id="el0" class="celement textbox <?php if(isset($_POST['username'])) toggleBorder($loginErr); ?>" size="40" name="username" value="<?php 
+     printItem("username");
+?>">
+<div class="error <?php if(isset($_POST['username'])) toggleIcon($loginErr); ?>" id="er0"><p class="error_text"><?php if(isset($_POST['username'])) echo $loginErr; ?></p></div>
+<input type="password" id="el1" class="celement textbox <?php if(isset($_POST['password'])) toggleBorder($loginErr); ?>" size="40" name="password" value="<?php 
+     printItem("password");
+?>">
+<div class="error <?php if(isset($_POST['password'])) toggleIcon($loginErr); ?>" id="er1"><p class="error_text"><?php if(isset($_POST['password'])) echo $loginErr; ?></p></div>
 <input type="checkbox" ><label>Remember me </label>
 
 </div>
