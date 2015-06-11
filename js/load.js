@@ -768,7 +768,7 @@ window.setInterval(function test()
 					fetchNews();
 				
 				}
-				else if(document.getElementById("news2") != null)
+				if(document.getElementById("news2") != null)
 				{
 					document.getElementById("news2").innerHTML = '<h2>Manage site news</h2><div class="addprod lab_link">\
 <label onclick="loadPage("addnews.php");">Add news</label>\
@@ -778,7 +778,7 @@ window.setInterval(function test()
 				
 				}
 				
-				else if(document.getElementById("reviews") != null)
+				if(document.getElementById("reviews") != null)
 				{
 					
 					document.getElementById("reviews").innerHTML = '<h2>Product reviews</h2>';
@@ -787,11 +787,11 @@ window.setInterval(function test()
 				
 				
 				}
-				else if(document.getElementById("reviews1") != null)
+				if(document.getElementById("reviews1") != null)
 				{
 					
 					document.getElementById("reviews1").innerHTML = '<h2>Manage site reviews</h2>';
-					fetchReviews();
+					fetchReviews2();
 				
 				
 				}
