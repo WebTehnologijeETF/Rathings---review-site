@@ -19,7 +19,7 @@
 
 <body id="main_body">
 
-<?php require 'adminHeader.php' ?>
+
 
 <?php
 

@@ -24,11 +24,11 @@
 
 <?php require "header.php"; ?>
 
-<?php require 'cValidationS.php'; ?>
 
 
 
-<form method="post" action="contact.php" id="cform" onsubmit="return validateFormC();">
+
+
 <div class="contact" class="container">
 <h2>Contact us</h2>
 
@@ -45,34 +45,32 @@
 </div>
 
 <div id="r_contact" class="cdiv">
-<input  type="text" id="el0" class="celement textbox <?php if(isset($_POST['name'])) toggleBorder($nameErr); ?>" name="name" value="<?php 
-     printItem("name");
-?>">
+<input  type="text" id="el0" class="celement textbox ">
 
-<div class="error <?php if(isset($_POST['name'])) toggleIcon($nameErr); ?>" id="er0"><p class="error_text"><?php if(isset($_POST['name'])) echo $nameErr; ?></p></div>
+<div class="error " id="er0"><p class="error_text"></p></div>
 
-<input type="text" id="el1" class="celement textbox <?php if(isset($_POST['lastname'])) toggleBorder($lastnameErr); ?>" size="40" name="lastname" value="<?php printItem("lastname");?>">
-<div class="error <?php if(isset($_POST['lastname'])) toggleIcon($lastnameErr); ?> " id="er1"><p class="error_text"><?php if(isset($_POST['lastname'])) echo $lastnameErr; ?></p></div>
-<input type="text" id="el2" class="celement textbox <?php if(isset($_POST['email'])) toggleBorder($emailErr); ?>" size="40" name="email" value="<?php printItem("email");?>">
-<div class="error <?php if(isset($_POST['email'])) toggleIcon($emailErr); ?> " id="er2"><p class="error_text"><?php if(isset($_POST['email'])) echo $emailErr; ?></p></div>
-<input type="number" id="el3" class="celement numeric <?php if(isset($_POST['rating'])) toggleBorder($ratingErr); ?>" size="5" min="1" max="10" name="rating" value="<?php printItem("rating");?>">
-<div class="error <?php if(isset($_POST['rating'])) toggleIcon($ratingErr); ?>" id="er3"><p class="error_text"><?php if(isset($_POST['rating'])) echo $ratingErr; ?></p></div>
-<input type="range" id="el4" class="celement textbox range <?php if(isset($_POST['urgency'])) toggleBorder($urgencyErr); ?>" name="urgency" value="<?php printItem("urgency");?>">
-<div class="error <?php if(isset($_POST['urgency'])) toggleIcon($urgencyErr); ?> " id="er4"><p class="error_text"><?php if(isset($_POST['urgency'])) echo $urgencyErr; ?></p></div> 
-<textarea id="el5" class="celement textarea <?php if(isset($_POST['message'])) toggleBorder($messageErr); ?>" cols="30" rows="7" name="message"><?php printItem("message");?></textarea>
-<div class="error <?php if(isset($_POST['message'])) toggleIcon($messageErr); ?>" id="er5"><p class="error_text"><?php if(isset($_POST['message'])) echo $messageErr; ?></p></div>
+<input type="text" id="el1" class="celement textbox " size="40" name="lastname" >
+<div class="error " id="er1"><p class="error_text"></p></div>
+<input type="text" id="el2" class="celement textbox " size="40" name="email" >
+<div class="error " id="er2"><p class="error_text"></p></div>
+<input type="number" id="el3" class="celement numeric " size="5" min="1" max="10" name="rating">
+<div class="error " id="er3"><p class="error_text"></p></div>
+<input type="range" id="el4" class="celement textbox range " name="urgency">
+<div class="error " id="er4"><p class="error_text"></p></div> 
+<textarea id="el5" class="celement textarea " cols="30" rows="7" name="message"></textarea>
+<div class="error" id="er5"><p class="error_text"></p></div>
 </div>
 
 <div id="c_buttons" >
 
 <input type="reset" value="Reset" class="button common_button">
-<input type="submit" value="Send" class="button common_button">
+<input type="button" value="Send" class="button common_button" onclick="validateFormC();">
 
 </div>
 
 </div>
 
-</form>
+
 
 
 

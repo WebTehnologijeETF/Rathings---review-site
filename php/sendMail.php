@@ -1,52 +1,71 @@
 <?php
 
-session_start(); 
 
-$to = "oljubuncic1@etf.unsa.ba";
+function zag() {
+    header("{$_SERVER['SERVER_PROTOCOL']} 200 OK");
+    header('Content-Type: text/html');
+    header('Access-Control-Allow-Origin: *');
+}
+function rest_get($request, $data) { }
+function rest_post($request, $data)
+ {
+ $cdata = json_decode($data["data"]);
+ 
+ 
+ $to = "oljubuncic1@etf.unsa.ba";
 $cc = "hodzic.k@gmail.com";
 $subject = "Rathings: User contact mail";
 
 
-$reply = $_SESSION["email"];
+$reply = $cdata["email"];
 
 
 
 
 
- //$headers = "CC:" . $cc . "\r\n" . "Reply-to:" . $reply;
+ $headers = "CC:" . $cc . "\r\n" . "Reply-to:" . $reply;
 
-$msg =  $_SESSION["name"] . " " . $_SESSION["lastname"] . "\n\n" .
-"Site rating: " . $_SESSION["rating"] . "\n\n" .
-"Message urgency: " . $_SESSION["urgency"] . "\n\n\n\n" .
-$_SESSION["message"];
+$msg =  $cdata["name"] . " " . $cdata["lastname"] . "\r\n" .
+"Site rating: " . $cdata["rating"] . "\r\n" .
+"Message urgency: " . $cdata["urgency"] . "\r\n\r\n" .
+$cdata["message"];
 
 $msg = wordwrap($msg,70);
 
-//mail($to,$subject,$msg,$headers);
+mail($to,$subject,$msg,$headers);
 
 
-require("sendgrid-php/sendgrid-php.php");
 
-// get account info from OpenShift environment variable
-$service_plan_id = "sendgrid_30644"; // your OpenShift Service Plan ID
-$account_info = json_decode(getenv($service_plan_id), true);
 
-$sendgrid = new SendGrid($account_info['username'], $account_info['password']);
-$email    = new SendGrid\Email();
+ }
+function rest_delete($request) { }
+function rest_put($request, $data) { }
+function rest_error($request) { }
 
-$email->addTo($to)
-	  ->addCc($cc)
-      ->setFrom($_SESSION["email"])
-      ->setSubject($subject)
-      ->setText($msg)
-	  ->setReplyTo($_SESSION["email"]);
+$method  = $_SERVER['REQUEST_METHOD'];
+$request = $_SERVER['REQUEST_URI'];
 
-$sendgrid->send($email);
+switch($method) {
+    case 'PUT':
+        parse_str(file_get_contents('php://input'), $put_vars);
+        zag(); $data = $put_vars; rest_put($request, $data); break;
+    case 'POST':
+        zag(); $data = $_POST; rest_post($request, $data); break;
+    case 'GET':
+        zag(); $data = $_GET; rest_get($request, $data); break;
+    case 'DELETE':
+        zag(); rest_delete($request); break;
+    default:
+        header("{$_SERVER['SERVER_PROTOCOL']} 404 Not Found");
+        rest_error($request); break;
+}
 
-session_destroy();
 
-header("Location: contactMessage.php");
-die();
+
+
+
+
+
 
 
 

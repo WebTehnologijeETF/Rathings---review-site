@@ -20,12 +20,30 @@
 <?php
 
 $s = $_POST["single"];
-$d = json_decode($s, true);
+
+$con = new PDO("mysql:dbname=rathings;host=localhost;charset=utf8", "rathingsuser", "rathingspass");
+     $con->exec("set names utf8");
+     $result = $con->prepare("select id, title, caption, text, author, image, UNIX_TIMESTAMP(date) date2 from news where id = ?");
+	 $result->bindValue(1, htmlspecialchars($s));
+	 $result->execute();
+	 
+     
+	 foreach($result as $d)
+	 {
+
+		
+			 $authorq = $con->prepare("SELECT name, lastname FROM users WHERE id=?");
+		  $authorq->bindValue(1, $d['author'], PDO::PARAM_INT);
+		  $authorq->execute();
+		  
+		  $authorfull = $authorq->fetch();
+		  $author = $authorfull['name'] . ' ' . $authorfull['lastname'];
+
 //echo $d["title"];
 
 $output = '<div id="singleNews"><h2>' . htmlspecialchars($d["title"]) . '</h2>' .
 '<img src="/images/author.png" alt="author" class="news_icon">' .
-'<label class="news_author">' . htmlspecialchars($d["author"]) . '</label>' .
+'<label class="news_author">' . htmlspecialchars($author) . '</label>' .
 '<img src="/images/date.png" alt="date" class="news_icon">' .
 '<label class="news_date">' . date("d.m.Y. (h:i)", htmlspecialchars($d['date2'])) . '</label><br><br>' .
 '<div class="news_text_single"><p>' . htmlspecialchars($d["caption"]) . '</p></div>';
@@ -38,6 +56,8 @@ if(htmlspecialchars($d["image"]) != "")
 
 
 		echo $output;
+		
+		}
 	
 	
 

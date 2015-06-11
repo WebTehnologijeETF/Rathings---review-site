@@ -590,19 +590,10 @@
 </div>
 
 
-<?php include 'loadProducts.php' ?>
 
 
-<div class="pagination">
-
-<input type="button" value="<<" class="button page_button">
-<input type="button" value="1" class="button page_button">
-<input type="button" value="2" class="button page_button">
-<input type="button" value="3" class="button page_button">
-<input type="button" value=">>" class="button page_button">
 
 
-</div>
 </div>
 </div>
 

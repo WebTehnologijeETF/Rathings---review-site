@@ -183,7 +183,7 @@ function deleteNews(id)
 
 
 	var ajax = new XMLHttpRequest();
-			var param = "deleteNews.php?id=" + id;
+			var param = "newsService.php?id=" + id;
 			
 				
 			
@@ -191,7 +191,8 @@ function deleteNews(id)
 			if (ajax.readyState == 4 && ajax.status == 200)
 			{
 					alert("You have successfully deleted the news.");
-					loadPage("adminPanel.php");
+					fetchReviews2();
+					fetchNews();
 					
 				
 				}
@@ -204,9 +205,9 @@ function deleteNews(id)
 		}
 		
 		
-			  ajax.open("GET", param, true);
-				
-			    ajax.send();
+			 ajax.open("DELETE", param, true);
+			ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			ajax.send();
 
 
 }
@@ -228,7 +229,7 @@ function deleteAdmin(id)
 			if (ajax.readyState == 4 && ajax.status == 200)
 			{
 					alert("You have successfully deleted the admin.");
-					loadPage("adminPanel.php");
+					
 					
 				
 				}
@@ -263,7 +264,7 @@ function updateNews(id)
 			if (ajax.readyState == 4 && ajax.status == 200)
 			{
 					document.getElementById('main_body').innerHTML = getBody(ajax.responseText);
-					
+					fetchNews();
 					
 				
 				}
@@ -279,6 +280,51 @@ function updateNews(id)
 			  ajax.open("GET", param, true);
 				
 			    ajax.send();
+
+
+}
+
+
+function updateNewsService(id)
+{
+
+		
+
+
+	var ajax = new XMLHttpRequest();
+			
+			var obj = {
+			
+			id:document.getElementById("id").value,
+			title:document.getElementById("el0").value,
+			caption:document.getElementById("el1").value,
+			image:document.getElementById("el2").value,
+			text:document.getElementById("el3").value
+			
+			};
+				
+			obj = JSON.stringify(obj);
+			ajax.onreadystatechange = function() {// Anonimna funkcija
+			if (ajax.readyState == 4 && ajax.status == 200)
+			{
+					document.getElementById("message").getElementsByTagName('p')[0].innerHTML = "You have successfully added news";
+				window.scrollTo(0,0);
+					
+					
+				
+				}
+			if (ajax.readyState == 4 && ajax.status == 404)
+				{
+					
+					alert("Error: News couldn't be updated");
+						
+				}
+		}
+		
+		
+			 ajax.open("PUT", "newsService.php", true);
+			ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			ajax.send("data=" + obj);
 
 
 }
@@ -328,7 +374,7 @@ function deleteReview(id)
 
 
 	var ajax = new XMLHttpRequest();
-			var param = "deleteReview.php?id=" + id;
+			var param = "reviewsService.php?id=" + id;
 			
 				
 			
@@ -336,7 +382,8 @@ function deleteReview(id)
 			if (ajax.readyState == 4 && ajax.status == 200)
 			{
 					alert("You have successfully deleted the review.");
-					loadPage("adminPanel.php");
+					fetchReviews2();
+					
 					
 				
 				}
@@ -349,9 +396,9 @@ function deleteReview(id)
 		}
 		
 		
-			  ajax.open("GET", param, true);
-				
-			    ajax.send();
+			  ajax.open("DELETE", param, true);
+			ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			ajax.send();
 
 
 }

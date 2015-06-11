@@ -1,7 +1,7 @@
 
 function validateFormC()
 {
-
+	
 	valid = true;
 	checkName('el0');
 	checkLastName('el1');
@@ -9,7 +9,67 @@ function validateFormC()
 	checkRating('el3');
 	checkMessage('el5');
 	
-	return valid;
+	
+	
+	if(valid)
+	{
+		// pozivanje web servisa za validaciju
+		
+		
+
+	var ajax = new XMLHttpRequest();
+			
+			var object = {
+			name:document.getElementById('el0').value,
+			lastname:document.getElementById('el1').value,
+			email:document.getElementById('el2').value,
+			rating:document.getElementById('el3').value,
+			urgency:document.getElementById('el4').value,
+			message:document.getElementById('el5').value
+			
+			
+			};
+			
+			
+			var objectjson = JSON.stringify(object);
+			ajax.onreadystatechange = function() {// Anonimna funkcija
+			if (ajax.readyState == 4 && ajax.status == 200)
+			{
+				
+				
+				//document.getElementById('main_body').innerHTML = getBody(ajax.responseText);
+				
+				var val = JSON.parse(ajax.responseText);
+				
+				
+				if(val.valid == true)
+					{
+					
+						loadPageWithId("contactConfirmation.php", object);
+						
+					
+					
+					}
+				
+				
+				
+			}
+			if (ajax.readyState == 4 && ajax.status == 404)
+				{
+					alert("Error loading page");
+				
+				
+				}
+		}
+			ajax.open("POST", "cValidations.php", true);
+			ajax.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			ajax.send("data=" + objectjson); 
+} 
+
+
+	
+	
+	
 }
 
 

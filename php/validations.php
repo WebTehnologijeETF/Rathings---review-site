@@ -1,9 +1,14 @@
 <?php
 
+
+
+
+
+
 function checkName()
 {
 	global $nameErr, $valid;
-	if(empty($_POST["name"]))
+	if(empty($cdata["name"]))
 	{
 		$nameErr = "You must enter your first name.";
 		$valid = false;
@@ -16,7 +21,7 @@ function checkName()
 function checkLastName()
 {
 	global $lastnameErr, $valid;
-	if(empty($_POST["lastname"]))
+	if(empty($cdata["lastname"]))
 	{
 		$lastnameErr = "You must enter your last name.";
 		$valid = false;
@@ -28,12 +33,12 @@ function checkLastName()
 function checkEmail()
 {
 	global $emailErr, $valid;
-	if(empty($_POST["email"]))
+	if(empty($cdata["email"]))
 	{
 		$emailErr = "You must enter your email address.";
 		$valid = false;
 	}
-	else if(!validEmail($_POST["email"]))
+	else if(!validEmail($cdata["email"]))
 	{
 		$emailErr = "You must enter a valid email address.";
 		$valid = false;
@@ -45,12 +50,12 @@ function checkEmail()
 function checkEmail2()
 {
 	global $mailErr, $valid;
-	if(empty($_POST["rmail"]))
+	if(empty($cdata["rmail"]))
 	{
 		$mailErr = "";
 		
 	}
-	else if(!validEmail($_POST["rmail"]))
+	else if(!validEmail($cdata["rmail"]))
 	{
 		$mailErr = "You must enter a valid email address.";
 		$valid = false;
@@ -63,7 +68,7 @@ function checkRating()
 {
 	global $ratingErr, $valid;
 	
-	if(isset($_POST["rating"]) && (!empty($_POST["rating"]) && !validRating($_POST["rating"])))
+	if(isset($cdata["rating"]) && (!empty($cdata["rating"]) && !validRating($cdata["rating"])))
 	{
 		$ratingErr = "You must enter a number between 1 and 10.";
 		$valid = false;
@@ -77,14 +82,14 @@ function checkRating2()
 {
 	global $ratingErr, $valid;
 	
-	if(empty($_POST["rating"]))
+	if(empty($cdata["rating"]))
 	{
 		$ratingErr = "You must enter a number between 1 and 10.";
 		$valid = false;
 	
 	}
 	
-	else if(isset($_POST["rating"]) && (!empty($_POST["rating"]) && !validRating($_POST["rating"])))
+	else if(isset($cdata["rating"]) && (!empty($cdata["rating"]) && !validRating($cdata["rating"])))
 	{
 		$ratingErr = "You must enter a number between 1 and 10.";
 		$valid = false;
@@ -98,7 +103,7 @@ function checkUrgency()
 {
 	global $urgencyErr, $valid;
 	
-	if(isset($_POST["urgency"]) && $_POST["urgency"] < 0 && $_POST["urgency"] > 100)
+	if(isset($cdata["urgency"]) && $cdata["urgency"] < 0 && $cdata["urgency"] > 100)
 	{
 		$urgencyErr = "Message urgency must be between 1 and 100.";
 		$valid = false;
@@ -112,7 +117,7 @@ function checkMessage()
 {
 	global $messageErr, $valid;
 	
-	if(empty($_POST["message"]))
+	if(empty($cdata["message"]))
 	{
 		$messageErr = "You must enter your message.";
 		$valid = false;
@@ -125,7 +130,7 @@ function checkReview()
 {
 	global $textErr, $valid;
 	
-	if(empty($_POST["rtext"]))
+	if(empty($cdata["rtext"]))
 	{
 		$textErr = "You must enter your review.";
 		$valid = false;

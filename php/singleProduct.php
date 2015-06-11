@@ -23,27 +23,26 @@
 <?php require "header.php"; ?>
 
 
-<?php require "reviewSubmit.php"; ?>
-
-
-
-
-
-
-
 
 <?php
 
 
 
 
-$s = $_POST["single"];
-$d = json_decode($s, true);
+$prodid = $_POST["single"];
 
 
-$prodid = htmlspecialchars($d['id']);
+$con = new PDO("mysql:dbname=rathings;host=localhost;charset=utf8", "rathingsuser", "rathingspass");
+     $con->exec("set names utf8");
+     $result = $con->prepare("select * from products where id = ?");
+	 $result->bindValue(1, htmlspecialchars($prodid));
+	 $result->execute();
+	 
+	 foreach($result as $d)
+	 {
 
-//echo $d["title"];
+
+
 
 $output = '<div id="singleProd"><h2>' . htmlspecialchars($d["name"]) . '</h2>' .
 
@@ -58,55 +57,12 @@ $output = '<div id="singleProd"><h2>' . htmlspecialchars($d["name"]) . '</h2>' .
 
 		echo $output;
 		
-		
-		 $con = new PDO("mysql:dbname=rathings;host=localhost;charset=utf8", "rathingsuser", "rathingspass");
-		 $con->exec("set names utf8");
-	 
-		$reviews = $con->prepare("select id, text, author_name, author_email, rating, UNIX_TIMESTAMP(date) date2 from reviews where product=? order by date");
-		$reviews->bindValue(1, htmlspecialchars($d['id']), PDO::PARAM_INT);
-		$reviews->execute();
-		
-		  $rnumb = $con->prepare("SELECT COUNT(*) FROM reviews where product=?");
-		  $rnumb->bindValue(1, htmlspecialchars($d['id']), PDO::PARAM_INT);
-		  $rnumb->execute();
-		  $rnumb = $rnumb->fetchColumn();
-		  
-		
-		$revCounter = 0;
-		echo '<div id="reviews"><h2>Product reviews</h2>';
+		}
 		
 		
-		
-		foreach ($reviews as $rev)
-		{
-			
-			$revOutput = '<div class="single_product">' .
-			'<img src="/images/author.png" alt="author" class="news_icon"><label class="news_author">';
-			if($rev['author_email'] != null) // there is mail
-				$revOutput .= '<a href = "mailto:' . $rev['author_email'] . '">' . $rev['author_name'] . '</a>';
-			else
-				$revOutput .= $rev['author_name'];
-			
-			$revOutput .= '</label><img src="/images/date.png" alt="date" class="news_icon"><label class="news_date">' .
-			date("d.m.Y. (h:i)", $rev['date2']) . '</label><br><label class="rating_mark right-side">' .
-			$rev['rating'] . '/10</label> <br><p>' .
-			$rev['text'] . '</p>';
-			$revOutput .= '</div>';
-			if($revCounter != $rnumb - 1) // not last
-				$revOutput .= '<div class="news_separator"></div>';	
-			
-			
-		
-			echo $revOutput;
-			$revCounter++;
-		} 
-		
-		if($revCounter == 0)
-		echo '<p>There are no reviews for this product</p>';
-		
-		echo '</div>';
+		 echo '<div id="reviews"><h2>Product reviews</h2>';
 	
-	
+		 echo '</div>';
 	
 
 
@@ -116,7 +72,7 @@ $output = '<div id="singleProd"><h2>' . htmlspecialchars($d["name"]) . '</h2>' .
 
 <div id="revForm">
 <h2>Add your review</h2>
-	<form action="singleProduct.php" method="post" name="revForm">
+	
 	
 		<p class="note"><i>Note: Fields marked with * are mandatory</i></p>
 
@@ -130,28 +86,24 @@ $output = '<div id="singleProd"><h2>' . htmlspecialchars($d["name"]) . '</h2>' .
 </div>
 
 <div id="r_contact" class="cdiv">
-<input  type="text" id="el0" class="celement textbox <?php if(isset($_POST['name'])) toggleBorder($nameErr); ?>" name="name" value="<?php 
-     printItem("name");?>">
-<div class="error <?php if(isset($_POST['name'])) toggleIcon($nameErr); ?>" id="er0"><p class="error_text"><?php if(isset($_POST['name'])) echo $nameErr; ?></p></div>
-<input type="text" id="el1" class="celement textbox <?php if(isset($_POST['rmail'])) toggleBorder($mailErr); ?>" size="40" name="rmail" value="<?php 
-     printItem("rmail");?>">
-<div class="error <?php if(isset($_POST['rmail'])) toggleIcon($mailErr); ?>" id="er1"><p class="error_text"><?php if(isset($_POST['rmail'])) echo $mailErr; ?></p></div>
-<input type="text" id="el2" class="celement textbox <?php if(isset($_POST['rating'])) toggleBorder($ratingErr); ?>" size="40" name="rating" value="<?php 
-     printItem("rating");?>"> <br>
-<div class="error <?php if(isset($_POST['rating'])) toggleIcon($ratingErr); ?>" id="er2"><p class="error_text"><?php if(isset($_POST['rating'])) echo $ratingErr; ?></p></div>
-<textarea id="el3" class="celement textarea <?php if(isset($_POST['rtext'])) toggleBorder($textErr); ?>" cols="30" rows="7" name="rtext"><?php 
-     printItem("text");?></textarea>
-<div class="error <?php if(isset($_POST['rtext'])) toggleIcon($textErr); ?>" id="er3"><p class="error_text"><?php if(isset($_POST['rtext'])) echo $textErr; ?></p></div>
+<input  type="text" id="el0" class="celement textbox " name="name">
+<div class="error " id="er0"><p class="error_text"></p></div>
+<input type="text" id="el1" class="celement textbox " size="40" name="rmail">
+<div class="error " id="er1"><p class="error_text"></p></div>
+<input type="text" id="el2" class="celement textbox " size="40" name="rating"> <br>
+<div class="error " id="er2"><p class="error_text"></p></div>
+<textarea id="el3" class="celement textarea " cols="30" rows="7" name="rtext"></textarea>
+<div class="error " id="er3"><p class="error_text"></p></div>
 
-<input type="hidden" name="id" value="<?php echo $d['id'] ?> ">
-<input type="hidden" name="single" value='<?php echo $s ?>' >
+<input type="hidden" id="id" name="id" >
+<input type="hidden" id="prodid" name="single" value='<?php echo $prodid ?>' >
 
 </div>
 
 <div id="rev_buttons" >
 
 <input type="reset" value="Reset" class="button common_button">
-<input type="submit" value="Send" class="button common_button">
+<input type="button" value="Send" class="button common_button" onclick="addReview();">
 
 </div>
 
@@ -159,7 +111,7 @@ $output = '<div id="singleProd"><h2>' . htmlspecialchars($d["name"]) . '</h2>' .
 
 
 	
-	</form>
+	
 
 
 </div>

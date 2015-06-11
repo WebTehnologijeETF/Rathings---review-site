@@ -17,7 +17,7 @@
 <script src="../js/add.js"></script>
 <script src="../js/categories.js"></script>
 </head>
-<body id="main_body">
+<body id="main_body" onload="fetchNews();">
 
 
 
@@ -28,7 +28,6 @@
 
 <h2>Latest news</h2>
 
-<?php include "news.php" ; ?>
 
 
 
@@ -40,16 +39,8 @@
 
 
 
-<div class="pagination">
-<input type="button" value="First" class="button narrow_button">
-<input type="button" value="<<" class="button page_button">
-<input type="button" value="1" class="button page_button">
-<input type="button" value="2" class="button page_button">
-<input type="button" value="3" class="button page_button">
-<input type="button" value=">>" class="button page_button">
-<input type="button" value="Last" class="button narrow_button">
 
-</div>
+
 
 </div>
 

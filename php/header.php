@@ -29,7 +29,7 @@
 
 <ul id="left_menu">
 <li class="menu_item">
-<a onclick='loadPage("index.php");'>HOME</a>
+<a onclick='loadPage("index.php"); fetchNews();'>HOME</a>
 
 </li> 
 
