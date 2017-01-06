@@ -4,7 +4,7 @@
 <title>Rathings</title>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="main.css">
-<link rel="shortcut icon" type="image/png" href="/images/favicon.png"/>
+<link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
 
 </head>
 <body id="main_body">
@@ -42,9 +42,9 @@ $con = new PDO("mysql:dbname=rathings;host=localhost;charset=utf8", "rathingsuse
 //echo $d["title"];
 
 $output = '<div id="singleNews"><h2>' . htmlspecialchars($d["title"]) . '</h2>' .
-'<img src="/images/author.png" alt="author" class="news_icon">' .
+'<img src="images/author.png" alt="author" class="news_icon">' .
 '<label class="news_author">' . htmlspecialchars($author) . '</label>' .
-'<img src="/images/date.png" alt="date" class="news_icon">' .
+'<img src="images/date.png" alt="date" class="news_icon">' .
 '<label class="news_date">' . date("d.m.Y. (h:i)", htmlspecialchars($d['date2'])) . '</label><br><br>' .
 '<div class="news_text_single"><p>' . htmlspecialchars($d["caption"]) . '</p></div>';
 
@@ -64,9 +64,9 @@ if(htmlspecialchars($d["image"]) != "")
 /* <div id="singleNews">
 
 <h2>HYUNDAI RELEASES NEW MODEL</h2>
-<img src="/images/author.png" alt="author" class="news_icon">
+<img src="images/author.png" alt="author" class="news_icon">
 <label class="news_author">John Doe</label>
-<img src="/images/date.png" alt="date" class="news_icon">
+<img src="images/date.png" alt="date" class="news_icon">
 <label class="news_date">01/01/2015</label>
 <br><br>
 
@@ -75,7 +75,7 @@ if(htmlspecialchars($d["image"]) != "")
 </div>
 
 <div class="img_div_single">
-<img src="/images/car.png" class="_img_single" alt="news">
+<img src="images/car.png" class="_img_single" alt="news">
 </div>
 
 <div class="details">

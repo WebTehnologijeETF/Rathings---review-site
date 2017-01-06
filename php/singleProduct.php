@@ -4,7 +4,7 @@
 <title>Rathings</title>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="../css/main.css">
-<link rel="shortcut icon" type="image/png" href="../images/favicon.png"/>
+<link rel="shortcut icon" type="image/png" href="..images/favicon.png"/>
 <script src="../js/load.js"></script>
 <script src="../js/gvalidation.js"></script>
 <script src="../js/login-validation.js"></script>
@@ -53,7 +53,8 @@ $output = '<div id="singleProd"><h2>' . htmlspecialchars($d["name"]) . '</h2>' .
 	htmlspecialchars($d["image"]) . '" class="_img" alt="news"></div>';
 	
 	$output .= '<div class="details"><p>' . htmlspecialchars($d["description"]) . '</p></div></div>';
-
+	$output .= '<br><br><a style="top:1200px;" href="addReview.php?id=' . $prodid . '">Add your review</a>
+';
 
 		echo $output;
 		
@@ -70,51 +71,11 @@ $output = '<div id="singleProd"><h2>' . htmlspecialchars($d["name"]) . '</h2>' .
 ?>
 
 
-<div id="revForm">
-<h2>Add your review</h2>
-	
-	
-		<p class="note"><i>Note: Fields marked with * are mandatory</i></p>
 
-<div id="l_contact" class="cdiv">
-<p  class=" clabel">Name*: </p>
-<p  class=" clabel">Email: </p>
-<p  class=" clabel">Rating*: </p>
-<p  class=" clabel">Review text*: </p>
-
- 
-</div>
-
-<div id="r_contact" class="cdiv">
-<input  type="text" id="el0" class="celement textbox " name="name">
-<div class="error " id="er0"><p class="error_text"></p></div>
-<input type="text" id="el1" class="celement textbox " size="40" name="rmail">
-<div class="error " id="er1"><p class="error_text"></p></div>
-<input type="text" id="el2" class="celement textbox " size="40" name="rating"> <br>
-<div class="error " id="er2"><p class="error_text"></p></div>
-<textarea id="el3" class="celement textarea " cols="30" rows="7" name="rtext"></textarea>
-<div class="error " id="er3"><p class="error_text"></p></div>
 
 <input type="hidden" id="id" name="id" >
 <input type="hidden" id="prodid" name="single" value='<?php echo $prodid ?>' >
 
-</div>
-
-<div id="rev_buttons" >
-
-<input type="reset" value="Reset" class="button common_button">
-<input type="button" value="Send" class="button common_button" onclick="addReview();">
-
-</div>
-
-
-
-
-	
-	
-
-
-</div>
 
 
 </body>

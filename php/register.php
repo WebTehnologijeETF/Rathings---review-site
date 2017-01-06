@@ -7,7 +7,7 @@
 <title>Register</title>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="main.css">
-<link rel="shortcut icon" type="image/png" href="/images/favicon.png"/>
+<link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
 <script src="gvalidation.js"></script>
 <script src="register-validation.js"></script>
 <script src="load.js"></script>

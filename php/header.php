@@ -10,17 +10,20 @@
 
 </div>
 
-<div id="search_box">
-<input type="text"  maxlength="50" id="search_text" placeholder="Search for products...">
-<div id="search_icon_cont">
-<img src="/images/search.png" alt="search" class="search_img" >
-</div>
-</div>
+
 
 <div id="login_div">
-<a onclick='loadPage("login.php");' class="login_label">Log in</a>
-<a onclick='loadPage("register.php");' class="login_label">Register</a>
-</div>
+	<?php
+	session_start();
+	if(isset($_SESSION['username'])) // ima neko ulogovan
+	{
+	echo 'You are logged in as ' . $_SESSION['username'];
+	echo '<form action="index.php" method="post"><input type="submit" value="Log out" class="button common_button"></form>';
+	}
+	else echo '<a onclick= "loadPage(`login.php`);" class="login_label">Log in</a>';
+
+?>
+</div>	
 
 
 <div id="menu_bar">
@@ -41,9 +44,7 @@
 <a onclick='loadPage("products.php");'>PRODUCTS</a>
 </li>
 
-<li class="menu_item">
-<a onclick='loadPage("products-table.php");'>MANAGE PRODUCTS</a> 
-</li>
+
 </ul>
 
 <ul id="right_menu">

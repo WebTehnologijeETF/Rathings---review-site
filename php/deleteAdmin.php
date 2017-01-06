@@ -1,5 +1,18 @@
 <?php
 
+session_start();
+if(!isset($_SESSION['username']) or $_SESSION['role'] != 1)
+{
+	header('Location: index.php');
+	die();
+
+}
+
+
+?>
+
+<?php
+
 if(isset($_GET['id']))
 $id = htmlspecialchars($_GET['id']);
 

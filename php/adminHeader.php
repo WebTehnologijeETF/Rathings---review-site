@@ -21,7 +21,7 @@
 <?php
 
 session_start();
-if(!isset($_SESSION['username']))
+if(!isset($_SESSION['username']) or $_SESSION['role'] != 1)
 {
 	header('Location: index.php');
 	die();
@@ -63,7 +63,7 @@ if(!isset($_SESSION['username']))
 
 <div class="Mes">
 
-<p>This is the admin panel. Here you can add, update or delete site news, reviews and administrators.</p>
+<p>This is the admin panel. Here you can add, update or delete other administrators.</p>
 
 </div>
 

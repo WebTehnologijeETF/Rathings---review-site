@@ -19,6 +19,18 @@
 
 <body id="main_body">
 
+<?php
+
+session_start();
+if(!isset($_SESSION['username']) or $_SESSION['role'] != 1)
+{
+	header('Location: index.php');
+	die();
+
+}
+
+
+?>
 
 
 <?php
@@ -54,37 +66,61 @@
 	{
 	
 		session_start();
+		$valid = true;
 	
 		$name = $lastname = $username = $password = "";
 		
-		if(isset($_POST['name']))
+		if(isset($_POST['name']) and $_POST['name'] != '')
 			$name = htmlspecialchars($_POST['name']);
+		else
+		{
+			$valid = false;
+			$mes = "You have to fill in all fields";
+		}
 			
-			if(isset($_POST['lastname']))
+			if(isset($_POST['lastname']) and $_POST['lastname'] != '')
 			$lastname = htmlspecialchars($_POST['lastname']);
+		else
+		{
+			$valid = false;
+			$mes = "You have to fill in all the fields";
+		}
 			
-			if(isset($_POST['username']))
+			if(isset($_POST['username']) and $_POST['username'] != '')
 			$username = htmlspecialchars($_POST['username']);
+		else
+		{
+			$valid = false;
+			$mes = "You have to fill in all fields";
+		}
 			
-			if(isset($_POST['password']))
+			if(isset($_POST['password']) and $_POST['password'] != '')
 			$password = htmlspecialchars($_POST['password']);
-			
-			if(isset($_POST['id']))
-			$id2 = htmlspecialchars($_POST['id']);
+		else
+		{
+			$valid = false;
+			$mes = "You have to fill in all fields";
+		}
+
+			if($valid)
+			{
 			
 			$con = new PDO("mysql:dbname=rathings;host=localhost;charset=utf8", "rathingsuser", "rathingspass");
 			$con->exec("set names utf8");
 	 
-			 $res = $con->prepare("update users set name = ?, lastname = ?, username = ?, password = ? where id = ?");
+			 $res = $con->prepare("update users set name = ?, lastname = ?, username = ?, email = ?, password = md5(?), roles_id=? where id=?");
 			 $res->bindValue(1, $name, PDO::PARAM_STR);
 			 $res->bindValue(2, $lastname, PDO::PARAM_STR);
 			 $res->bindValue(3, $username, PDO::PARAM_STR);
-			 $res->bindValue(4, $password, PDO::PARAM_STR);
-			 $res->bindValue(5, $id2, PDO::PARAM_INT);
+			 $res->bindValue(4, $username, PDO::PARAM_STR);
+			 $res->bindValue(5, $password, PDO::PARAM_INT);
+			 $res->bindValue(6, 1, PDO::PARAM_INT);
+			 $res->bindValue(7, $id, PDO::PARAM_INT);
 			 $res->execute();
 			 
-			 $mes = "You have successfully updated the administrator.";
-			 
+			 $mes = "You have successfully updated the administrator";
+
+			}
 			
 		
 	

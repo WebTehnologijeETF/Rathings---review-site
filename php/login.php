@@ -7,7 +7,7 @@
 <title>Log in</title>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="../css/main.css">
-<link rel="shortcut icon" type="image/png" href="/images/favicon.png"/>
+<link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
 <script src="gvalidation.js"></script>
 <script src="login-validation.js"></script>
 <script src="load.js"></script>

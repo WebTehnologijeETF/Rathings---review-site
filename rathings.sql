@@ -43,8 +43,8 @@ CREATE TABLE IF NOT EXISTS `news` (
 --
 
 INSERT INTO `news` (`id`, `title`, `caption`, `text`, `author`, `image`, `date`) VALUES
-(2, 'Eminem reaches million subscribers', 'The most popular hip hop singer in the world\r\n hits the magic number in March 2015.', 'Spotify named rapper Marshall Bruce Eminem Mathers III as the most streamed artist of all time and pop\r\nstar Robyn Rihanna Fenty as the most streamed female artist ever, USA Today reported.\r\n Eminem and Rihanna collaborated in the song Love The Way You Lie in 2010.', 1, '/images/mobile.png', '2015-05-26 13:56:34'),
-(5, 'Hyundai releases new model.', 'Don''t miss hyundai''s latest\r\nluxury car that has everythnig you need.', NULL, 1, '/images/car.png', '2015-05-28 16:31:14'),
+(2, 'Eminem reaches million subscribers', 'The most popular hip hop singer in the world\r\n hits the magic number in March 2015.', 'Spotify named rapper Marshall Bruce Eminem Mathers III as the most streamed artist of all time and pop\r\nstar Robyn Rihanna Fenty as the most streamed female artist ever, USA Today reported.\r\n Eminem and Rihanna collaborated in the song Love The Way You Lie in 2010.', 1, 'images/mobile.png', '2015-05-26 13:56:34'),
+(5, 'Hyundai releases new model.', 'Don''t miss hyundai''s latest\r\nluxury car that has everythnig you need.', NULL, 1, 'images/car.png', '2015-05-28 16:31:14'),
 (6, 'Samsung releases new model.', 'Samsung has once again proved to be one\r\nof the best there is in the market.', 'The Galaxy S6 line retains similarities in design to previous models, but now uses a unibody metal frame with\r\na glass backing, a curved bezel with chamfered sides to improve grip, and the speaker grille was moved to the\r\nbottom. The devices are available in "White Pearl", "Black Sapphire", and "Gold Platinum" color finishes; additional " Blue Topaz" and "Emerald Green" finishes are exclusive to the S6 and S6 Edge respectively. The S6 carries some regressions in its design over the S5; it is no longer waterproof, does not contain a MicroSD card slot, reverts to a USB 2.0 port from USB 3, and has a non-removable battery.', 1, NULL, '2015-05-28 16:32:10');
 
 -- --------------------------------------------------------
@@ -68,11 +68,11 @@ CREATE TABLE IF NOT EXISTS `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `category`, `image`, `description`, `rating`) VALUES
-(1, 'S6 Galaxy Tablet', 'Technology', '/images/phone.png', 'The newest Samsung model.', 10),
-(2, 'Passat 7', 'Vehicles', '/images/car.png', 'The newest VW model.', 9.3),
-(3, 'Subaru X4', 'Vehicles', '/images/car.png', 'This model has everything you need.', 10),
-(4, 'Iphone 6', 'Technology', '/images/phone.png', 'The newest Apple model.', 9),
-(5, 'Theory of everything', 'Books', '/images/movie.png', 'The newest Hollywood movie.', 6);
+(1, 'S6 Galaxy Tablet', 'Technology', 'images/phone.png', 'The newest Samsung model.', 10),
+(2, 'Passat 7', 'Vehicles', 'images/car.png', 'The newest VW model.', 9.3),
+(3, 'Subaru X4', 'Vehicles', 'images/car.png', 'This model has everything you need.', 10),
+(4, 'Iphone 6', 'Technology', 'images/phone.png', 'The newest Apple model.', 9),
+(5, 'Theory of everything', 'Books', 'images/movie.png', 'The newest Hollywood movie.', 6);
 
 -- --------------------------------------------------------
 

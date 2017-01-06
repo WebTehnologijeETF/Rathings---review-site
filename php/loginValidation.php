@@ -29,17 +29,41 @@ $con = new PDO("mysql:dbname=rathings;host=localhost;charset=utf8", "rathingsuse
 				
 				
 			}
-			else // ulogovan
+			else // ulogovan - ispitujemo tip: 1-admin, 2-user
 			{
-				foreach($res as $ress)
-					$adminId = $ress['id'];
+				foreach ($res as $ress)
+					$role = $ress['roles_id'];
+
+				
+
+		  		if($role == 1) // admin
+		  		{
+		  			foreach($res as $ress)
+						$adminId = $ress['id'];
 				
 				 session_start();
 				 $_SESSION['username'] = htmlspecialchars($_POST['username']);
 				 $_SESSION['id'] = htmlspecialchars($adminId);
+				 $_SESSION['role'] = htmlspecialchars($role);
 				
 				 header('Location: adminPanel.php');
 				 die();
+		  		}
+		  		else if($role == 2) // user
+		  		{
+		  			foreach($res as $ress)
+						$adminId = $ress['id'];
+				
+				 session_start();
+				 $_SESSION['username'] = htmlspecialchars($_POST['username']);
+				 $_SESSION['id'] = htmlspecialchars($adminId);
+				 $_SESSION['role'] = htmlspecialchars($role);
+				
+				 header('Location: index.php');
+				 die();
+		  		}
+		  
+				
 				
 				
 			}

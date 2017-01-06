@@ -7,7 +7,7 @@
 <title>Contact us</title>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="../css/main.css">
-<link rel="shortcut icon" type="image/png" href="../images/favicon.png"/>
+<link rel="shortcut icon" type="image/png" href="..images/favicon.png"/>
 <script src="../js/load.js"></script>
 <script src="../js/gvalidation.js"></script>
 <script src="../js/login-validation.js"></script>

@@ -7,7 +7,7 @@
 <title>Products</title>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="main.css">
-<link rel="shortcut icon" type="image/png" href="/images/favicon.png"/>
+<link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
 <script src="categories.js"></script>
 <script src="gvalidation.js"></script>
 <script src="products-validation.js"></script>
@@ -658,7 +658,7 @@
 <div class="feed_item">
 <h2>Product of the day</h2>
 <div class="single_product">
-<img src="/images/product.png" alt="product" class="_img_prod">
+<img src="images/product.png" alt="product" class="_img_prod">
 <label class="prod">Iphone 7</label>
  <label class="rating_mark right-side">8.4</label> <br>
 <label class="prod2">Category: Technology</label> <br>

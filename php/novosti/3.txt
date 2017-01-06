@@ -1,6 +1,6 @@
 01.05.2015. 11:00:30
 John Doe
 HYUNDAI RELEASES NEW MODEL
-/images/car.png
+images/car.png
 Don't miss hyundai's latest
 luxury car that has everythnig you need.

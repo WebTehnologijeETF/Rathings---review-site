@@ -456,9 +456,9 @@ function fetchNews()
 				
 					 fileOutput += '<div class="single_news">' + '<h3>' + 
 		 data[i].title + '</h3>' +
-		 '<img src="/images/author.png" alt="author" class="news_icon">' +
+		 '<img src="images/author.png" alt="author" class="news_icon">' +
 		 '<label class="news_author">' + data[i].author + '</label>' +
-		 '<img src="/images/date.png" alt="date" class="news_icon">' +
+		 '<img src="images/date.png" alt="date" class="news_icon">' +
 		 '<label class="news_date">' + data[i].date + '</label> <br><br>' +
 		 '<div class="img_div">'; 
 		 
@@ -617,13 +617,13 @@ function fetchReviews(object)
 				for(var i=0;i<data.length;i++)
 				{
 					revOutput += '<div class="single_product">' +
-			'<img src="/images/author.png" alt="author" class="news_icon"><label class="news_author">';
+			'<img src="images/author.png" alt="author" class="news_icon"><label class="news_author">';
 			if(data[i].author_email != "") // there is mail
 				revOutput += '<a href = "mailto:' + data[i].author_email + '">' + data[i].author_name + '</a>';
 			else
 				revOutput += data[i].author_name;
 			
-			revOutput += '</label><img src="/images/date.png" alt="date" class="news_icon"><label class="news_date">' +
+			revOutput += '</label><img src="images/date.png" alt="date" class="news_icon"><label class="news_date">' +
 			data[i].date + '</label><br><label class="rating_mark right-side">' +
 			data[i].rating + '/10</label> <br><p>' +
 			data[i].text + '</p>';
@@ -674,13 +674,13 @@ function fetchReviews2()
 				for(var i=0;i<data.length;i++)
 				{
 					revOutput += '<div class="single_product">' +
-			'<img src="/images/author.png" alt="author" class="news_icon"><label class="news_author">';
+			'<img src="images/author.png" alt="author" class="news_icon"><label class="news_author">';
 			if(data[i].author_email != "") // there is mail
 				revOutput += '<a href = "mailto:' + data[i].author_email + '">' + data[i].author_name + '</a>';
 			else
 				revOutput += data[i].author_name;
 			
-			revOutput += '</label><img src="/images/date.png" alt="date" class="news_icon"><label class="news_date">' +
+			revOutput += '</label><img src="images/date.png" alt="date" class="news_icon"><label class="news_date">' +
 			data[i].date + '</label><br><label class="rating_mark right-side">' +
 			data[i].rating + '/10</label> <br><p>' +
 			data[i].text + '</p>';

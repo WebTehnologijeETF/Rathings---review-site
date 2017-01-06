@@ -7,7 +7,7 @@
 <title>About us</title>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="main.css">
-<link rel="shortcut icon" type="image/png" href="/images/favicon.png"/>
+<link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
 <script src="load.js"></script>
 </head>
 <body id="main_body">
